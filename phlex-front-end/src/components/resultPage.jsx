@@ -4,11 +4,10 @@ import SearchForm from "./searchForm";
 import "../stylesheets/resultPage.css";
 
 class ResultPage extends Component {
-  state = {};
   render() {
     return (
       <div className="resultPage">
-        <SearchForm />
+        <SearchForm onChange={this.props.onChange} data={this.props.data} />
         <PgCard />
       </div>
     );
