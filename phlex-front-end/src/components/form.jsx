@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class Form extends Component {
   state = {};
-  renderInputField(path, label, placeholder, type = "text") {
+  renderInputField(path, label, placeholder, value) {
     return (
       <div className="form-group text-left p-3">
         <label htmlFor={path}>{label}</label>
@@ -10,17 +10,41 @@ class Form extends Component {
           className="form-control"
           id={path}
           placeholder={placeholder}
-          type={type}
-          onChange={e => this.handleChange(e)}
+          type="text"
+          onChange={this.onChange}
+          value={value}
         />
       </div>
     );
   }
-  renderRange(path, label, min = 0, max = 100, step = 1, val = 50) {
-    const curVal = 50; // to be changed by a dynamic value, raising state to result page
+  renderDateField(path, label) {
+    const today = new Date(Date.now());
+    const month = Number(today.getMonth()) + 1;
+    const defaultDate = `${today.getFullYear()}-${month
+      .toString()
+      .padStart(2, "0")}-${today.getDate()}`;
+
     return (
       <div className="form-group text-left p-3">
-        <label htmlFor={path}>{`${label}:${curVal}`}</label>
+        <label htmlFor={path}>{label}</label>
+        <input
+          className="form-control"
+          id={path}
+          type="date"
+          onChange={this.onChange}
+          defaultValue={defaultDate}
+        />
+      </div>
+    );
+  }
+  renderRange(path, label, min = 0, max = 100, step = 1, val) {
+    const ticks = [];
+    for (let i = min; i <= max; i += step * 5) {
+      ticks.push(i);
+    }
+    return (
+      <div className="form-group text-left p-3">
+        <label htmlFor={path}>{`${label}: ${val}`}</label>
         <input
           id={path}
           className="form-control"
@@ -29,21 +53,13 @@ class Form extends Component {
           max={max}
           step={step}
           defaultValue={val}
-          onChange={e => this.handleChange(e)}
+          onChange={this.onChange}
           list="tickmarks"
         />
         <datalist id="tickmarks">
-          <option value="0" label="0%" />
-          <option value="10" />
-          <option value="20" />
-          <option value="30" />
-          <option value="40" />
-          <option value="50" label="50%" />
-          <option value="60" />
-          <option value="70" />
-          <option value="80" />
-          <option value="90" />
-          <option value="100" label="100%" />
+          {ticks.map(tick => (
+            <option key={tick} value={tick} />
+          ))}
         </datalist>
       </div>
     );
@@ -61,7 +77,7 @@ class Form extends Component {
                 name={path}
                 value={option.path}
                 defaultChecked={i === 0}
-                onChange={e => this.handleChange(e)}
+                onChange={this.onChange}
               />
               <label htmlFor={option.path}>{option.label}</label>
             </div>
@@ -69,10 +85,6 @@ class Form extends Component {
         </div>
       </div>
     );
-  }
-  handleChange(e) {
-    console.log(e.target.value);
-    return e.target.value;
   }
 }
 
