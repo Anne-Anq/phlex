@@ -1,27 +1,41 @@
 .body{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
+
     border-radius: 10px;;
     align-items: center;
-    width: 98vw;
-    background-color: #7f9dff;
+    width: 50vw;
+    min-width: 500px;
+    height: 80vh;
+    background-color: rgba(127, 157, 255, .9);
     margin: 10px;
+    box-shadow:5px 5px 2px gray;
 }
 .block{
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
     background-color: #A8BCFF;
-    width: 25%;
+    width: 16.5vw;
+    min-width: 300px;
+    box-shadow:5px 5px 2px #2F5FFC;
+
 }
 
 .fields{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
-    width: 100vw;
+    width: 90vw;
     margin: 20px;
     padding: 10px;
     border-radius: 5px;
+    flex-wrap: wrap;
 }
+.title{
+    width: 50vw
+}
+
