@@ -1,0 +1,40 @@
+
+.reviews{
+    background-color: #f0f2ff;  
+    flex: 50% 1 1;
+    margin: 5px; 
+    border-radius:5px;  
+    padding: 10px;
+    text-align: end;
+    display: flex; 
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .first-review{
+    display:flex;
+  }
+  .user-avatar{
+    flex: 10% 1 1;
+    border-radius: 5px; 
+    border: 1px solid black;
+    overflow: hidden;
+    object-fit: contain;
+    margin: 10px;
+  }
+  .user-avatar>img{
+    max-width: 100%;
+    min-height: 100%;
+  }
+  .user-info{
+    flex: 10% 1 1  ;
+    margin: 5px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    /* background-color: blue; */
+  }
+  .review{
+    flex: 60% 1 1  ;
+    margin: 10px;
+  }

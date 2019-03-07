@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
-
+import getPgs from "./service/pgFakeDb";
 //Components
 import Navbar from "./components/navbar";
 import ResultPage from "./components/resultPage";
@@ -8,6 +8,7 @@ import Home from "./components/home";
 
 //Stylesheets
 import "./App.css";
+
 
 class App extends Component {
   state = {
@@ -18,11 +19,17 @@ class App extends Component {
         basePrice: "300",
         addPrice: "50",
         tradeOk: ""
-      }
+      },
+      photographers: []
     },
     error: {}
   };
-
+  componentDidMount() {
+    const photographers = getPgs();
+    this.setState(prevState => ({
+      data: { ...prevState.data, photographers: photographers }
+    }))
+  }
   handleChange = e => {
     const path = e.target.name ? e.target.name : e.target.id;
     const value =

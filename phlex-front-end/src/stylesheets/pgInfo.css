@@ -1,0 +1,36 @@
+.info{
+    background-color: #f0f2ff;
+    flex:30% 1 1;
+    margin: 25px 0; 
+    border-radius:5px;
+    display: flex; 
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .pg-name{
+    font-size: 1.7em;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+}
+.pg-bio{
+    text-align: left;
+}
+.pg-tags{
+   display: flex; 
+    align-items: center;
+}
+.pg-tags>div.badge{
+    margin: 2px 2px 2px 0;
+}
+.etd{
+    font-style: italic;
+}
+.price{
+    width:100%;
+    display: flex;
+    text-align: left;
+}
+.price>div.price-legend{
+    width: 110px;
+}
