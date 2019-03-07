@@ -2,3 +2,17 @@
   display: flex;
   flex-wrap: wrap;
 }
+.searchForm {
+  background-color: #7f9dff;
+  flex: 248px 1 0;
+  height: 90vh;
+}
+.scroll{
+    height: 90vh;
+    overflow-Y: scroll;  
+    flex: 744px 1 0;
+}
+.pgCards {
+  display: flex;
+  flex-direction: column;
+}

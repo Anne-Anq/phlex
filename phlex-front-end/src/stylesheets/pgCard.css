@@ -1,4 +1,111 @@
 .pgCard {
   background-color: #f0f2ff;
-  flex: 661px 2 0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+}
+.preview{
+  background-color: #6f80f0;
+  flex:50%;
+  display:flex;
+}
+.pg-avatar{
+  background-color: #f0f2ff;
+  flex: 30% 1 1 ;
+  max-height: 100%;
+  overflow: hidden;
+  flex:30% 1 1;
+  margin: 25px; 
+  border-radius:5px;  
+  object-fit: contain;
+
+}
+.pg-avatar >img {
+    max-width: 100%;
+    min-height: 100%;
+
+}
+.info{
+  background-color: #f0f2ff;
+  flex:30% 1 1;
+  margin: 25px 0; 
+  border-radius:5px;
+}
+.calendar{
+  background-color: #f0f2ff;
+  flex:30% 1 1;
+  margin: 25px; 
+  border-radius:5px;
+}
+.collapsed-data{
+  background-color: #6f80f0;
+  flex:50%;
+  display: flex;
+  flex-direction: column;
+}
+.insta{
+  background-color: #f0f2ff;
+  flex: 50% 1 1;
+  margin: 5px 5px 0 5px; 
+  padding: 10px;
+  border-radius:5px;    
+  text-align: end;
+  display: flex; 
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.pretend-pix{
+  flex: 50% 1 1; 
+  display:flex;
+  align-items: stretch;
+}
+.pretend-pic{
+  flex: 15% 1 1;
+  background: linear-gradient(135deg, rgba(236,195,239,1) 0%, rgba(178,39,185,1) 0%, rgba(142,219,240,1) 100%);
+  border-radius: 5px; 
+  border: 1px solid black;
+  margin: 10px;
+}
+a.more{
+  margin-right: 10px;
+}
+.reviews{
+  background-color: #f0f2ff;  
+  flex: 50% 1 1;
+  margin: 5px; 
+  border-radius:5px;  
+  padding: 10px;
+  text-align: end;
+  display: flex; 
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.first-review{
+  display:flex;
+}
+.user-avatar{
+  flex: 10% 1 1;
+  border-radius: 5px; 
+  border: 1px solid black;
+  overflow: hidden;
+  object-fit: contain;
+  margin: 10px;
+}
+.user-avatar>img{
+  max-width: 100%;
+  min-height: 100%;
+}
+.user-info{
+  flex: 10% 1 1  ;
+  margin: 5px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  /* background-color: blue; */
+}
+.review{
+  flex: 60% 1 1  ;
+  margin: 10px;
 }

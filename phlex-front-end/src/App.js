@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { Switch, Route } from "react-router-dom";
 
+//Components
 import Navbar from "./components/navbar";
 import ResultPage from "./components/resultPage";
 import Home from "./components/home";
 
-import "../node_modules/bootstrap/dist/css/bootstrap.css";
-import "../node_modules/bootstrap/dist/js/bootstrap.js";
+//Stylesheets
 import "./App.css";
 
 class App extends Component {
@@ -29,8 +29,8 @@ class App extends Component {
       path !== "tradeOk"
         ? e.target.value
         : e.target.value === "yes"
-        ? true
-        : false;
+          ? true
+          : false;
     let search = {};
     Object.keys(this.state.data.search).map(input => {
       input === path

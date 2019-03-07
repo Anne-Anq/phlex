@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import PgCard from "./pgCard";
+import PgCards from "./pgCards";
 import SearchForm from "./searchForm";
+import Scroll from "./common/scroll";
 import "../stylesheets/resultPage.css";
 
 class ResultPage extends Component {
@@ -8,7 +9,12 @@ class ResultPage extends Component {
     return (
       <div className="resultPage">
         <SearchForm onChange={this.props.onChange} data={this.props.data} />
-        <PgCard />
+        <Scroll>
+          <PgCards />
+        </Scroll>
+
+
+
       </div>
     );
   }
