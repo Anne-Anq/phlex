@@ -1,6 +1,5 @@
 import React from "react";
 import Form from "./form";
-import "../stylesheets/searchForm.css";
 
 class SearchForm extends Form {
   onChange = e => {
@@ -14,8 +13,8 @@ class SearchForm extends Form {
     const { photoType, addPrice, basePrice } = { ...this.props.data.search };
 
     return (
-      <div className="searchForm">
-        <h4 className="m-5">Find a photographer</h4>
+
+      <div className="searchForm pt-4">
         {this.renderInputField(
           "photoType",
           "Types of photography",
@@ -41,6 +40,8 @@ class SearchForm extends Form {
         )}
         {this.renderRadio("tradeOk", "Accepts service trade", options)}
       </div>
+
+
     );
   }
 }
