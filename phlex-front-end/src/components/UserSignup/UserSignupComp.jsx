@@ -5,6 +5,12 @@ class UserSignup extends Component {
 	state = {
         hasRegistered:false
     };
+    
+
+    /*
+    TODO: Make it so that when your submit your info, it will
+            redirect you to the find photographer page.
+    */
 	render() {
         if(this.state.hasRegistered === false){
 		return (
@@ -81,15 +87,5 @@ class UserSignup extends Component {
         };
 	}
 }
-
-/*
-User register form:
-
-A signup form for clients.
-
-Have the form as a popout, while potentially maintaining the landing page background.
-
-NAME | LASTNAME | EMAIL | PASSWORD | PROFILE PHOTO | SUBMIT BUTTON
-*/
 
 export default UserSignup;
