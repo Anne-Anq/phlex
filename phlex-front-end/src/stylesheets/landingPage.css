@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
+.landing-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background: url("../img//william-thomas-315484-unsplash.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+    height: 100vh;
+}
+
+#phlex-header{
+    font-size: 500%;
+    font-family: 'Josefin Sans', cursive;
+}
+
+#search {
+    height:90px;
+    font-size:50pt;
+    background-color: rgba(0,0,0,0);
+    border: solid 0;
+    color: white;
+    margin-bottom: 3%;
+}

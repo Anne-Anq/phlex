@@ -4,6 +4,7 @@ import { Switch, Route } from "react-router-dom";
 //Components
 import Navbar from "./components/navbar";
 import ResultPage from "./components/resultPage";
+import LandingPage from './components/LandingPage';
 import Home from "./components/home";
 
 //Stylesheets
@@ -44,6 +45,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <LandingPage />
         <Navbar />
         <Switch>
           <Route
