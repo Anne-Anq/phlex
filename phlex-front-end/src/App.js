@@ -46,8 +46,9 @@ class App extends Component {
         : (search[input] = this.state.data.search[input]);
       return "";
     });
-
-    this.setState({ data: { search } });
+    this.setState(prevState => ({
+      data: { ...prevState.data, search: search }
+    }))
   };
   render() {
     return (
@@ -72,7 +73,7 @@ class App extends Component {
             path="/register"
             render={
               props => <UserSignup />
-              }
+            }
           />
           <Route path="/login" render={props => <h1>I am the login page</h1>} />
           <Route
