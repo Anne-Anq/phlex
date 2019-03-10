@@ -25,7 +25,7 @@ class PgCard extends Component {
           <div className="pretend-pix">
             {[0, 1, 2, 3, 4, 5].map((el) => (<div key={el} className="pretend-pic">{el}</div>))}
           </div>
-          <a className="more" href="/">more...</a>
+          <button type="button" className="btn btn-link more">more...</button>
         </div>
         <PgReviews photographer={photographer} />
       </div>
