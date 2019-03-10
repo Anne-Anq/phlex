@@ -79,6 +79,58 @@ const photographers = [
         ]
 
     },
+    {
+        id: 6,
+        fName: 'Romeo',
+        lName: 'Escondido',
+        avatarURL: "https://images.unsplash.com/photo-1551847812-f815b31ae67c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+        rating: 4.5,
+        bio: "Romeo is your guy for crisp Black and White.",
+        tags: ["Black & White"],
+        etd: 11,
+        rate10: 130,
+        rate5: 25,
+        instaURL: "https://www.instagram.com/",
+        reviews: [
+            {
+                id: 4,
+                user: {
+                    id: 3,
+                    avatarURL: "https://images.unsplash.com/photo-1547200413-5f93d7e3673e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+                    fName: 'Maria',
+                    lName: 'DaSilva',
+                },
+                created_at: '07/03/2019',
+                rating: 5,
+                review: "I am loving this guy, that's what one calls art. "
+            },
+            {
+                id: 5,
+                user: {
+                    id: 4,
+                    avatarURL: "https://images.unsplash.com/photo-1551997476-7788a5dd3fca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+                    fName: 'Grace',
+                    lName: 'Goodrich',
+                },
+                created_at: '09/03/2019',
+                rating: 5,
+                review: "Yess, bring it. "
+            },
+            {
+                id: 6,
+                user: {
+                    id: 5,
+                    avatarURL: "https://images.unsplash.com/photo-1552056613-1f3710d175ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+                    fName: 'Jason',
+                    lName: 'Blake',
+                },
+                created_at: '10/03/2019',
+                rating: 3.5,
+                review: "Not too bad! "
+            }
+        ]
+
+    }
 ]
 const getPgs = () => photographers;
 

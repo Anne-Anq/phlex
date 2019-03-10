@@ -19,6 +19,9 @@
   display: flex;
   flex-direction: column;
 }
+.collapsed-data.is-collapsed{
+  display: none;
+}
 .insta{
   background-color: #f0f2ff;
   flex: calc(22.5vh-5px) 1 1;

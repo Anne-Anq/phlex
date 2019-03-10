@@ -7,8 +7,8 @@ class PgCards extends Component {
   render() {
     const { photographers } = this.props;
     return <div className="pgCards">
-      {photographers[0] && photographers.map((pg) => (
-        <PgCard key={pg.id} photographer={pg} />
+      {photographers && photographers[0] && photographers.map((pg, i) => (
+        <PgCard key={pg.id} photographer={pg} isFirst={i === 0} />
       ))}
     </div >;
   }
