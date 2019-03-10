@@ -16,7 +16,7 @@ class PgReviews extends Component {
         return (
             <div className="reviews">
                 {reviews && reviews.map((review, i) => (
-                    <div key={review.id} className={isMoreClicked || i === 0 ? "shown-review" : "hidden-review"} >
+                    <div key={`review${review.id}`} className={isMoreClicked || i === 0 ? "shown-review" : "hidden-review"} >
                         <div className="user-avatar">
                             <img src={review.user.avatarURL}
                                 alt={`${review.user.fName}${review.user.lName}Avatar`} />
@@ -29,7 +29,7 @@ class PgReviews extends Component {
                         <div className="review-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda rem esse sint animi quasi exercitationem quam cum facere natus nihil dolorem,</div>
                     </div>
                 ))}
-                {reviews.length > 1 && <button type="button" className="btn btn-link more" onClick={this.handleClick}>{isMoreClicked ? "less..." : "more..."}</button>}
+                <button type="button" className={`btn btn-link more ${reviews.length <= 1 ? "hidden" : ""}`} onClick={this.handleClick}>{isMoreClicked ? "less..." : "more..."}</button>
             </div>
         );
     }

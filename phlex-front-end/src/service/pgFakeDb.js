@@ -16,7 +16,7 @@ const photographers = [
                 id: 0,
                 user: {
                     id: 1,
-                    AvatarUrl: "https://images.unsplash.com/photo-1543229912-d69e86dc1dc2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+                    avatarURL: "https://images.unsplash.com/photo-1543229912-d69e86dc1dc2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
                     fName: 'John',
                     lName: 'Doe',
                 },
@@ -44,7 +44,7 @@ const photographers = [
                 id: 1,
                 user: {
                     id: 3,
-                    AvatarUrl: "https://images.unsplash.com/photo-1547200413-5f93d7e3673e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+                    avatarURL: "https://images.unsplash.com/photo-1547200413-5f93d7e3673e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
                     fName: 'Maria',
                     lName: 'DaSilva',
                 },
@@ -56,7 +56,7 @@ const photographers = [
                 id: 2,
                 user: {
                     id: 4,
-                    AvatarUrl: "https://images.unsplash.com/photo-1547200413-5f93d7e3673e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+                    avatarURL: "https://images.unsplash.com/photo-1547200413-5f93d7e3673e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
                     fName: 'Maria',
                     lName: 'DaSilva',
                 },
@@ -67,7 +67,7 @@ const photographers = [
             {
                 user: {
                     id: 3,
-                    AvatarUrl: "https://images.unsplash.com/photo-1547200413-5f93d7e3673e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+                    avatarURL: "https://images.unsplash.com/photo-1547200413-5f93d7e3673e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
                     fName: 'Maria',
                     lName: 'DaSilva',
                 },
