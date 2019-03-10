@@ -26,7 +26,7 @@ class PgReviews extends Component {
                             <Stars rating={review.rating} />
                             <div className="date">{review.created_at}</div>
                         </div>
-                        <div className="review-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda rem esse sint animi quasi exercitationem quam cum facere natus nihil dolorem,</div>
+                        <div className="review-text">{review.review}</div>
                     </div>
                 ))}
                 <button type="button" className={`btn btn-link more ${reviews.length <= 1 ? "hidden" : ""}`} onClick={this.handleClick}>{isMoreClicked ? "less..." : "more..."}</button>

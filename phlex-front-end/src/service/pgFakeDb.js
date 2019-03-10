@@ -56,24 +56,25 @@ const photographers = [
                 id: 2,
                 user: {
                     id: 4,
-                    avatarURL: "https://images.unsplash.com/photo-1547200413-5f93d7e3673e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-                    fName: 'Maria',
-                    lName: 'DaSilva',
+                    avatarURL: "https://images.unsplash.com/photo-1551997476-7788a5dd3fca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+                    fName: 'Grace',
+                    lName: 'Goodrich',
                 },
-                created_at: '07/03/2019',
-                rating: 2,
-                review: "Arthus was so nice to the puppies when he came to take pictures for the instagram og my doggie day care. "
+                created_at: '09/03/2019',
+                rating: 1,
+                review: "Good pictures but sketchy man. "
             },
             {
+                id: 3,
                 user: {
-                    id: 3,
-                    avatarURL: "https://images.unsplash.com/photo-1547200413-5f93d7e3673e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
-                    fName: 'Maria',
-                    lName: 'DaSilva',
+                    id: 5,
+                    avatarURL: "https://images.unsplash.com/photo-1552056613-1f3710d175ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60",
+                    fName: 'Jason',
+                    lName: 'Blake',
                 },
-                created_at: '07/03/2019',
+                created_at: '10/03/2019',
                 rating: 4,
-                review: "Arthus was so nice to the puppies when he came to take pictures for the instagram og my doggie day care. "
+                review: "I definitely recommend Arthur for  your 360deg picture, it add tons of value to my facebook and insta feed! "
             }
         ]
 

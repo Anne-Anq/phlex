@@ -8,7 +8,7 @@ import "../../stylesheets/pgCard.css";
 
 class PgCard extends Component {
   state = {
-
+    isCollapsed: true
   };
   render() {
     const { photographer } = this.props;
