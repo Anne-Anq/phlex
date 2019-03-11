@@ -1,13 +1,11 @@
 .pgCard {
   background-color: #f0f2ff;
-  height: 100%;
   display: flex;
   flex-direction: column;
-  height: 90vh;
 }
 .preview{
   background-color: #6f80f0;
-  flex:50%;
+  flex:45vh 1 1 ;
   display:flex;
 }
 .calendar{
@@ -18,13 +16,15 @@
 }
 .collapsed-data{
   background-color: #6f80f0;
-  flex:50%;
   display: flex;
   flex-direction: column;
 }
+.collapsed-data.is-collapsed{
+  display: none;
+}
 .insta{
   background-color: #f0f2ff;
-  flex: 50% 1 1;
+  flex: calc(22.5vh-5px) 1 1;
   margin: 5px 5px 0 5px; 
   padding: 10px;
   border-radius:5px;    
@@ -34,9 +34,9 @@
   justify-content: flex-end;
 }
 .pretend-pix{
-  flex: 50% 1 1; 
   display:flex;
   align-items: stretch;
+  height: 80px;
 }
 .pretend-pic{
   flex: 15% 1 1;
@@ -45,6 +45,9 @@
   border: 1px solid black;
   margin: 10px;
 }
-a.more{
-  margin-right: 10px;
+button.more{
+  text-align: end;
+}
+button.more.hidden{
+  visibility: hidden;
 }

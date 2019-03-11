@@ -1,7 +1,6 @@
 
 .reviews{
     background-color: #f0f2ff;  
-    flex: 50% 1 1;
     margin: 5px; 
     border-radius:5px;  
     padding: 10px;
@@ -10,8 +9,12 @@
     flex-direction: column;
     justify-content: flex-end;
   }
-  .first-review{
+  .shown-review{
     display:flex;
+    height: 80px;
+  }
+  .hidden-review{
+    display:none;
   }
   .user-avatar{
     flex: 10% 1 1;
@@ -32,9 +35,8 @@
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
-    /* background-color: blue; */
   }
-  .review{
+  .review-text{
     flex: 60% 1 1  ;
     margin: 10px;
-  }
+  }  

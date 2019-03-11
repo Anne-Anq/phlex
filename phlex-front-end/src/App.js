@@ -61,6 +61,7 @@ class App extends Component {
       return "";
     });
 
+
     this.setState( prevState => 
       ({ 
         data: { ...prevState.data, search } }));
@@ -71,6 +72,7 @@ class App extends Component {
     if (searchString) {
         return this.props.history.push('/result');
     }
+
   };
   
   render() {
@@ -97,7 +99,7 @@ class App extends Component {
             path="/register"
             render={
               props => <UserSignup />
-              }
+            }
           />
           <Route path="/login" render={props => <h1>I am the login page</h1>} />
           <Route

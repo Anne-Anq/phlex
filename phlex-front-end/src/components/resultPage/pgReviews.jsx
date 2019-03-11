@@ -3,23 +3,33 @@ import Stars from "../common/stars";
 import "../../stylesheets/pgReviews.css";
 
 class PgReviews extends Component {
-    state = {}
+    state = {
+        isMoreClicked: false
+    }
+    handleClick = () => {
+        const { isMoreClicked } = this.state;
+        this.setState({ isMoreClicked: !isMoreClicked });
+    }
     render() {
+        const { reviews } = this.props.photographer;
+        const { isMoreClicked } = this.state;
         return (
             <div className="reviews">
-                <div className="first-review">
-                    <div className="user-avatar">
-                        <img src="https://images.unsplash.com/photo-1543229912-d69e86dc1dc2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60"
-                            alt="KateBuAvatar" />
+                {reviews && reviews.map((review, i) => (
+                    <div key={`review${review.id}`} className={isMoreClicked || i === 0 ? "shown-review" : "hidden-review"} >
+                        <div className="user-avatar">
+                            <img src={review.user.avatarURL}
+                                alt={`${review.user.fName}${review.user.lName}Avatar`} />
+                        </div>
+                        <div className="user-info">
+                            <div className="user-name">{`${review.user.fName} ${review.user.lName}`}</div>
+                            <Stars rating={review.rating} />
+                            <div className="date">{review.created_at}</div>
+                        </div>
+                        <div className="review-text">{review.review}</div>
                     </div>
-                    <div className="user-info">
-                        <div className="user-name">John Doe</div>
-                        <Stars rating={4.5} />
-                        <div className="date">20/02/2019</div>
-                    </div>
-                    <div className="review">Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda rem esse sint animi quasi exercitationem quam cum facere natus nihil dolorem,</div>
-                </div>
-                <a className="more" href="/">more...</a>
+                ))}
+                <button type="button" className={`btn btn-link more ${reviews.length <= 1 ? "hidden" : ""}`} onClick={this.handleClick}>{isMoreClicked ? "less..." : "more..."}</button>
             </div>
         );
     }
