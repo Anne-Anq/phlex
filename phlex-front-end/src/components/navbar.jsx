@@ -5,7 +5,10 @@ class Navbar extends Component {
   state = {};
   render() {
     return (
-      <nav id="navbar" className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav id="navbar" 
+        className= {this.props.isAtHome ?
+          "navbar navbar-expand-lg navbar-dark bg-dark":
+          "navbar navbar-expand-lg navbar-light bg-light"}>
         <NavLink className="navbar-brand" to="/">
           Phlex
         </NavLink>

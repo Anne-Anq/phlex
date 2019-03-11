@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import getPgs from "./service/pgFakeDb";
 //Components
 import Navbar from "./components/navbar";
 import ResultPage from "./components/resultPage";
 import LandingPage from './components/LandingPage';
-import Home from "./components/home";
 import UserSignup from './components/UserSignup/UserSignupComp';
 
 //Stylesheets
@@ -24,14 +23,28 @@ class App extends Component {
       },
       photographers: []
     },
-    error: {}
+    error: {},
+    atHome: false
   };
+
   componentDidMount() {
     const photographers = getPgs();
+    let  { atHome } = this.state;
+    atHome = this.props.location.pathname === '/' ?  true : false;
     this.setState(prevState => ({
-      data: { ...prevState.data, photographers: photographers }
+      data: { ...prevState.data, photographers: [...photographers], ...prevState.atHome = atHome }
     }))
   }
+
+  componentWillReceiveProps(nextProps) {
+    const photographers = getPgs();
+    let  { atHome } = this.state
+    atHome = nextProps.location.pathname === '/' ?  true : false;
+    this.setState(prevState => ({
+      data: { ...prevState.data, photographers: [...photographers], ...prevState.atHome = atHome }
+    }))
+  }
+
   handleChange = e => {
     const path = e.target.name ? e.target.name : e.target.id;
     const value =
@@ -48,13 +61,23 @@ class App extends Component {
       return "";
     });
 
-    this.setState({ data: { search } });
+    this.setState( prevState => 
+      ({ 
+        data: { ...prevState.data, search } }));
   };
+
+  handleSearch =() => {
+    const searchString =  this.state.data.search.photoType;
+    if (searchString) {
+        return this.props.history.push('/result');
+    }
+  };
+  
   render() {
+    const { atHome } = this.state;
     return (
       <div className="App">
-        <LandingPage />
-        <Navbar />
+        <Navbar isAtHome={atHome} />
         <Switch>
           <Route
             path="/result"
@@ -78,20 +101,23 @@ class App extends Component {
           />
           <Route path="/login" render={props => <h1>I am the login page</h1>} />
           <Route
+            exact
             path="/"
             //change this
             render={props => (
-              <Home
+              <LandingPage
                 {...props}
                 {...this.state}
                 onChange={e => this.handleChange(e)}
+                onClick={() => this.handleSearch()}
               />
             )}
           />
+          <Redirect from='*' to='/' />
         </Switch>
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
