@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
+.landing-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    background: url("../img/william-thomas-315484-unsplash.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh;
+}
+
+#phlex-header{
+    font-size: 500%;
+    font-family: 'Josefin Sans', cursive;
+    overflow:hidden;
+}
+
+.form-control {
+    height:90px;
+    font-size:50pt;
+    background-color: rgba(0,0,0,0);
+    border: solid 0;
+    color: white;
+    margin-bottom: 3%;
+}
+.search {
+    height:90px;
+    font-size:50pt;
+    background-color: rgba(0,0,0,0);
+    border: solid 0;
+    color: white;
+    margin-bottom: 3%;
+}
+
+#tagline {
+    color: red;
+    font-size: 0.5em;
+    animation-duration: 4s;
+    animation-name: slidein;
+}
+
+@keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 300%; 
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+    font-size:25pt;
+    padding-top: 15pt; 
+}
+
+.btn-danger {
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
+    height: 3em;
+    width: 55%;
+}
+
+.has-search .form-control {
+    padding-left: 3.375rem;
+    width: 50rem;
+    height: 5rem;
+    background-color: rgba(0,0,0,0);
+    font-size: 20pt;
+    margin-bottom: unset;
+}

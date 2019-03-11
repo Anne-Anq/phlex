@@ -5,7 +5,14 @@ class Navbar extends Component {
   state = {};
   render() {
     return (
-      <nav id="navbar" className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav
+        id="navbar"
+        className={
+          this.props.isLandingPage
+            ? "navbar navbar-expand-lg navbar-dark bg-dark"
+            : "navbar navbar-expand-lg navbar-light bg-light"
+        }
+      >
         <NavLink className="navbar-brand" to="/">
           Phlex
         </NavLink>
@@ -24,9 +31,11 @@ class Navbar extends Component {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto d-flex justify-content-between">
             <li className="d-lg-flex flex-row">
-              <NavLink to="/result" className="nav-item nav-link">
-                Find a photographer <span className="sr-only">(current)</span>
-              </NavLink>
+              {!this.props.isLandingPage && (
+                <NavLink to="/result" className="nav-item nav-link">
+                  Find a photographer <span className="sr-only">(current)</span>
+                </NavLink>
+              )}
               <NavLink to="/join" className="nav-item nav-link">
                 Become a photographer <span className="sr-only">(current)</span>
               </NavLink>
