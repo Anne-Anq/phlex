@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-import '../stylesheets/LandingPage.css';
+import '../stylesheets/landingPage.css';
 
-class  LandingPage extends Component {
+class LandingPage extends Component {
 
-    render() { 
+    render() {
         return (
             <div className="landing-page">
                 <div id="phlex-header">Phlex
@@ -26,5 +26,5 @@ class  LandingPage extends Component {
         );
     }
 }
- 
+
 export default LandingPage;

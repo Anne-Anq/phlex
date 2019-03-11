@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Stars from "../common/stars";
+import Stars from "../common/Stars";
 import "../../stylesheets/pgReviews.css";
 
 class PgReviews extends Component {

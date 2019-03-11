@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
-import PgInfo from "./pgInfo";
-import PgAvatar from './pgAvatar';
-import PgReviews from "./pgReviews";
+import PgInfo from "./PgInfo";
+import PgAvatar from './PgAvatar';
+import PgReviews from "./PgReviews";
 
 import "../../stylesheets/pgCard.css";
 

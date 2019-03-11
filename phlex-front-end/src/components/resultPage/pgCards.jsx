@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PgCard from "./pgCard";
+import PgCard from "./PgCard";
 
 
 class PgCards extends Component {

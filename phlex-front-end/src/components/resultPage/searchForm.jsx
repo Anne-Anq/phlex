@@ -1,5 +1,5 @@
 import React from "react";
-import Form from "../form";
+import Form from "../Form";
 
 class SearchForm extends Form {
   onChange = e => {
