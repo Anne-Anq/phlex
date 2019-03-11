@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import getPgs from "./service/pgFakeDb";
 //Components
-import Navbar from "./components/navbar";
-import ResultPage from "./components/resultPage";
+import Navbar from "./components/Navbar";
+import ResultPage from "./components/ResultPage";
 import LandingPage from './components/LandingPage';
 import UserSignup from './components/UserSignup/UserSignupComp';
 
@@ -29,8 +29,8 @@ class App extends Component {
 
   componentDidMount() {
     const photographers = getPgs();
-    let  { atHome } = this.state;
-    atHome = this.props.location.pathname === '/' ?  true : false;
+    let { atHome } = this.state;
+    atHome = this.props.location.pathname === '/' ? true : false;
     this.setState(prevState => ({
       data: { ...prevState.data, photographers: [...photographers], ...prevState.atHome = atHome }
     }))
@@ -38,8 +38,8 @@ class App extends Component {
 
   componentWillReceiveProps(nextProps) {
     const photographers = getPgs();
-    let  { atHome } = this.state
-    atHome = nextProps.location.pathname === '/' ?  true : false;
+    let { atHome } = this.state
+    atHome = nextProps.location.pathname === '/' ? true : false;
     this.setState(prevState => ({
       data: { ...prevState.data, photographers: [...photographers], ...prevState.atHome = atHome }
     }))
@@ -62,19 +62,20 @@ class App extends Component {
     });
 
 
-    this.setState( prevState => 
-      ({ 
-        data: { ...prevState.data, search } }));
+    this.setState(prevState =>
+      ({
+        data: { ...prevState.data, search }
+      }));
   };
 
-  handleSearch =() => {
-    const searchString =  this.state.data.search.photoType;
+  handleSearch = () => {
+    const searchString = this.state.data.search.photoType;
     if (searchString) {
-        return this.props.history.push('/result');
+      return this.props.history.push('/result');
     }
 
   };
-  
+
   render() {
     const { atHome } = this.state;
     return (
