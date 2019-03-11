@@ -77,7 +77,7 @@ class App extends Component {
     const { atHome } = this.state;
     return (
       <div className="App">
-        <Navbar isAtHome={atHome} />
+        <Navbar isLandingPage={atHome} />
         <Switch>
           <Route
             path="/result"

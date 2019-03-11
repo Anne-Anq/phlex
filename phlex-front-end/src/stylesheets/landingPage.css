@@ -17,6 +17,7 @@
 #phlex-header{
     font-size: 500%;
     font-family: 'Josefin Sans', cursive;
+    overflow:hidden;
 }
 
 .form-control {
@@ -39,6 +40,20 @@
 #tagline {
     color: red;
     font-size: 0.5em;
+    animation-duration: 4s;
+    animation-name: slidein;
+}
+
+@keyframes slidein {
+    from {
+      margin-left: 100%;
+      width: 300%; 
+    }
+  
+    to {
+      margin-left: 0%;
+      width: 100%;
+    }
 }
 
 .has-search .form-control-feedback {

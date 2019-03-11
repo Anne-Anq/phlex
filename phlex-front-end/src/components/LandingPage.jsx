@@ -16,7 +16,7 @@ class  LandingPage extends Component {
                         type="text"
                         name="photoType"
                         className="form-control form-control-danger"
-                        //onKeyDown={this.handleSearch}
+                        onKeyDown={e => e.keyCode === 13 && this.props.onClick(e)}
                         onChange={(e) => this.props.onChange(e)}
                         placeholder="Search for a photographer"
                     />
