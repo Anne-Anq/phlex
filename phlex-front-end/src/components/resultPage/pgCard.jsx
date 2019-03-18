@@ -4,15 +4,20 @@ import PgInfo from "./PgInfo";
 import PgAvatar from './PgAvatar';
 import PgReviews from "./PgReviews";
 
+import createCal from "../../service/fullCalendar"
+
 import "../../stylesheets/pgCard.css";
+import "../../stylesheets/calendar.css";
 
 class PgCard extends Component {
   state = {
     isCollapsed: true
   };
   componentDidMount() {
+    createCal();
     const { isFirst } = this.props;
     this.setState({ isCollapsed: !isFirst });
+
   }
   handleClick = () => {
     const { isCollapsed } = this.state;
@@ -26,7 +31,6 @@ class PgCard extends Component {
         <PgAvatar photographer={photographer} />
         <PgInfo photographer={photographer} />
         <div className="calendar">
-          This is a placeholder for where the calendar should be
         </div>
       </div>
       <div className={`collapsed-data ${isCollapsed ? "is-collapsed" : ""}`}>

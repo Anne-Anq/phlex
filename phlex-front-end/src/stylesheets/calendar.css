@@ -1,0 +1,17 @@
+div.fc-toolbar.fc-header-toolbar{
+  display: flex;
+  justify-content: space-between;
+}
+div.fc-left{
+  margin:0;
+  padding: 0;
+}
+
+div.fc-right{
+  margin:0;
+  padding: 0;
+}
+/* 
+button.fc-today-button.fc-button.fc-state-default.fc-corner-left.fc-corner-right.fc-state-disabled{
+  display: none;  
+} */
