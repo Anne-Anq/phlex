@@ -6,10 +6,6 @@ class SearchForm extends Form {
     this.props.onChange(e);
   };
   render() {
-    const options = [
-      { path: "yes", label: "Yes" },
-      { path: "no", label: "No / It doesn't matter" }
-    ];
     const { photoType, addPrice, basePrice } = { ...this.props.data.search };
 
     return (
@@ -38,7 +34,6 @@ class SearchForm extends Form {
           10,
           addPrice
         )}
-        {this.renderRadio("tradeOk", "Accepts service trade", options)}
       </div>
 
 

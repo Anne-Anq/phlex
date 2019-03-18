@@ -19,7 +19,6 @@ class App extends Component {
         dateFrom: "",
         basePrice: "300",
         addPrice: "50",
-        tradeOk: ""
       },
       photographers: []
     },
@@ -46,16 +45,10 @@ class App extends Component {
   }
 
   handleChange = e => {
-    const path = e.target.name ? e.target.name : e.target.id;
-    const value =
-      path !== "tradeOk"
-        ? e.target.value
-        : e.target.value === "yes"
-          ? true
-          : false;
+    const { value, id } = e.target;
     let search = {};
     Object.keys(this.state.data.search).map(input => (
-      input === path
+      input === id
         ? (search[input] = value)
         : (search[input] = this.state.data.search[input])
     ));
