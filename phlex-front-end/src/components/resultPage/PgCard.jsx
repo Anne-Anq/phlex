@@ -6,7 +6,7 @@ import PgReviews from "./PgReviews";
 
 import createCal from "../../service/fullCalendar"
 
-import "../../stylesheets/pgCard.css";
+import "../../stylesheets/PgCard.css";
 import "../../stylesheets/calendar.css";
 
 class PgCard extends Component {
