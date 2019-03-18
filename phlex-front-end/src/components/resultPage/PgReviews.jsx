@@ -1,4 +1,4 @@
-/.import React, { Component } from 'react';
+import React, { Component } from 'react';
 import Stars from "../common/Stars";
 import "../../stylesheets/PgReviews.css";
 
