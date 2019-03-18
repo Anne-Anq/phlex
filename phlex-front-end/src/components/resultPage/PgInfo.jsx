@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Stars from "../common/Stars";
-import "../../stylesheets/pgInfo.css";
+import "../../stylesheets/PgInfo.css";
 
 class PgInfo extends Component {
     state = {}

@@ -54,14 +54,11 @@ class App extends Component {
           ? true
           : false;
     let search = {};
-    Object.keys(this.state.data.search).map(input => {
+    Object.keys(this.state.data.search).map(input => (
       input === path
         ? (search[input] = value)
-        : (search[input] = this.state.data.search[input]);
-      return "";
-    });
-
-
+        : (search[input] = this.state.data.search[input])
+    ));
     this.setState(prevState =>
       ({
         data: { ...prevState.data, search }
@@ -73,7 +70,6 @@ class App extends Component {
     if (searchString) {
       return this.props.history.push('/result');
     }
-
   };
 
   render() {

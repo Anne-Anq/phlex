@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import "../../stylesheets/pgAvatar.css";
+import "../../stylesheets/PgAvatar.css";
 
 class PgAvatar extends Component {
     state = {}

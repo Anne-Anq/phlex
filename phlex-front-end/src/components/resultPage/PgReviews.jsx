@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+/.import React, { Component } from 'react';
 import Stars from "../common/Stars";
-import "../../stylesheets/pgReviews.css";
+import "../../stylesheets/PgReviews.css";
 
 class PgReviews extends Component {
     state = {
