@@ -8,12 +8,7 @@
   flex:45vh 1 1 ;
   display:flex;
 }
-.calendar{
-  background-color: #f0f2ff;
-  flex:30% 1 1;
-  margin: 25px; 
-  border-radius:5px;
-}
+
 .collapsed-data{
   background-color: #6f80f0;
   display: flex;
