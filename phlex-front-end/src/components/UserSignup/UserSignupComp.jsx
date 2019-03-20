@@ -7,7 +7,7 @@ class UserSignup extends Component {
     };
 
 
-    /*
+    /* 
     TODO: Make it so that when your submit your info, it will
             redirect you to the find photographer page.
     */
