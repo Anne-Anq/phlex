@@ -45,6 +45,7 @@ class App extends Component {
   }
 
   handleChange = e => {
+    console.log(e.target.name, e.target.value);
     const { value, id } = e.target;
     let search = {};
     Object.keys(this.state.data.search).map(input => (
@@ -58,7 +59,7 @@ class App extends Component {
       }));
   };
 
-  handleSearch = () => {
+  handleSubmitSearch = () => {
     const searchString = this.state.data.search.photoType;
     if (searchString) {
       return this.props.history.push('/result');
@@ -101,7 +102,7 @@ class App extends Component {
                 {...props}
                 {...this.state}
                 onChange={e => this.handleChange(e)}
-                onClick={() => this.handleSearch()}
+                onClick={this.handleSubmitSearch}
               />
             )}
           />
