@@ -1,0 +1,6 @@
+.calendar-container{
+    background-color: #f0f2ff;
+    flex:30% 1 1;
+    margin: 25px; 
+    border-radius:5px;
+  }
