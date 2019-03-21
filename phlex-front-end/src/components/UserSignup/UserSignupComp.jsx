@@ -57,8 +57,14 @@ class UserSignup extends Component {
 							</select>
 						</div>
 					</div>
+					<form>
+							<div id="fileUpload" class="form-group">
+								<label for="exampleFormControlFile1">Upload Some Photos To Make You Stand Out!</label>
+								<input type="file" class="form-control-file" id="exampleFormControlFile1" />
+							</div>
+						</form>
                     </div>
-					<button type="submit" class="btn btn-outline-danger">
+					<button type="submit" class="btn btn-danger">
 						Sign up
 					</button>
 
