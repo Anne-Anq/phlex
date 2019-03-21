@@ -10,6 +10,18 @@ const photographers = [
         etd: 7,
         rate10: 140,
         rate5: 30,
+        notAvailable: [
+            {
+                id: 0,
+                from: "2019-03-24",
+                to: "2019-03-26",
+            },
+            {
+                id: 1,
+                from: "2019-03-28",
+                to: "2019-03-30",
+            },
+        ],
         instaURL: "https://www.instagram.com/",
         reviews: [
             {
