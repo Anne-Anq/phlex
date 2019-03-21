@@ -25,7 +25,12 @@ class App extends Component {
     },
     error: {},
   };
-
+  componentDidMount() {
+    const photographers = getPgs();
+    this.setState(prevState => ({
+      data: { ...prevState.data, photographers }
+    }))
+  }
   handleChange = e => {
     console.log(e.target.name, e.target.value);
     const { value, id } = e.target;
@@ -51,7 +56,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Navbar  {...this.props}/>
+        <Navbar  {...this.props} />
         <Switch>
           <Route
             path="/result"
