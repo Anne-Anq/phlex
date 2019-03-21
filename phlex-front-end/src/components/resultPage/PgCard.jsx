@@ -3,18 +3,18 @@ import React, { Component } from "react";
 import PgInfo from "./PgInfo";
 import PgAvatar from './PgAvatar';
 import PgReviews from "./PgReviews";
+import Calendar from "../common/Calendar";
 
-import createCal from "../../service/fullCalendar"
 
 import "../../stylesheets/PgCard.css";
-import "../../stylesheets/calendar.css";
+
 
 class PgCard extends Component {
   state = {
     isCollapsed: true
   };
   componentDidMount() {
-    createCal();
+    //createCal();
     const { isFirst } = this.props;
     this.setState({ isCollapsed: !isFirst });
 
@@ -30,8 +30,9 @@ class PgCard extends Component {
       <div className="preview" onClick={this.handleClick}>
         <PgAvatar photographer={photographer} />
         <PgInfo photographer={photographer} />
-        <div className="calendar">
-        </div>
+        {/* <div className="calendar">
+        </div> */}
+        <Calendar />
       </div>
       <div className={`collapsed-data ${isCollapsed ? "is-collapsed" : ""}`}>
         <div className="insta">
