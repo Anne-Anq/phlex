@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 import ResultPage from "./components/ResultPage";
 import LandingPage from './components/LandingPage';
 import UserSignup from './components/UserSignup/UserSignupComp';
+import PhotographerSignup from "./components/PhotographerSignup/PhotographerSignupComp";
 
 //Stylesheets
 import "./App.css";
@@ -64,7 +65,7 @@ class App extends Component {
           />
           <Route
             path="/join"
-            render={props => <h1>I am the Become a photographer page</h1>}
+            render={props => <PhotographerSignup />}
           />
           <Route
             path="/register"
