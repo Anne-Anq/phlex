@@ -14,80 +14,55 @@ class UserSignup extends Component {
 	render() {
 		if (this.state.hasRegistered === false) {
 			return (
-				<div className="body">
-					<div className="block title">
-						<h3>User Register Form</h3>
-					</div>
-					<div className="fields">
-						<div className="block">
-							<h3>First Name</h3>
-							<input
-								id="firstName"
-								placeholder="Enter Your First Name"
-								className="form-control form-control-danger form"
-							/>
-						</div>
+				<div className='body'>
 
-						<div className="block">
-							<h3>Last Name</h3>
-							<input
-								id="lastName"
-								placeholder="Enter Your Last Name"
-								className="form-control form-control-danger form"
-							/>
-						</div>
+                    <div className='block title'>
+                        <h4>Sign up to be connected to your cities best photographers</h4>
+                    </div>
 
-						<div className="block">
-							<h3>Email</h3>
-							<input
-								type="email "
-								id="email"
-								placeholder="Enter Your Email"
-								className="form-control form-control-danger form"
-							/>
-						</div>
+                    <div id='fields'>
 
-						<div className="block">
-							<h3>Password</h3>
-							<input
-								type="password"
-								id="password"
-								placeholder="Enter Your Password"
-								className="form-control form-control-danger form"
-							/>
+                    <div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="inputEmail4">Email</label>
+							<input type="email" class="form-control" id="inputEmail4" placeholder="Email" />
 						</div>
-
-						<div className="block">
-							<h3>Confirm Password</h3>
-							<input
-								type="password"
-								id="confirmPassword"
-								placeholder="Enter Your Password"
-								className="form-control form-control-danger form"
-							/>
-						</div>
-
-						<div className="block">
-							<h3>Upload A Photo</h3>
-							<input type="file" name="image" accept="image/*" />
-							<br />
+						<div class="form-group col-md-6">
+							<label for="inputPassword4">Password</label>
+							<input type="password" class="form-control" id="inputPassword4" placeholder="Password" />
 						</div>
 					</div>
-
-					<div className="submit">
-						<button
-							className="btn btn-primary"
-							type="submit"
-							onClick={() => {
-								this.setState({
-									hasRegistered: true,
-								});
-							}}
-						>
-							Submit
-						</button>
+					<div class="form-row">
+						<div class="form-group col-md-6">
+							<label for="inputCity">City</label>
+							<input type="text" class="form-control" id="inputCity" placeholder='City' />
+						</div>
+						<div class="form-group col-md-4">
+							<label for="inputState">Province</label>
+							<select id="inputState" class="form-control">
+								<option selected>Choose...</option>
+								<option>Alberta</option>
+                                <option>British Columbia</option>
+                                <option>Manitoba</option>
+                                <option>New Brunswick</option>
+                                <option>Newfoundland and Labrador</option>
+                                <option>Northwest Territories</option>
+                                <option>Nova Scotia</option>
+                                <option>Nunavut</option>
+                                <option>Ontario</option>
+                                <option>PEI</option>
+                                <option>Quebec</option>
+                                <option>Saskatchewan</option>
+                                <option>Yukon</option>
+							</select>
+						</div>
 					</div>
-				</div>
+                    </div>
+					<button type="submit" class="btn btn-outline-danger">
+						Sign up
+					</button>
+
+                </div>
 			);
 		} else {
 			return (
