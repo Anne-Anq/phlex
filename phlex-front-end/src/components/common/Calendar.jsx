@@ -81,13 +81,46 @@ class Calendar extends Component {
         })
         return trElements;
     }
+    onMonthChange = (e, month) => {
+        this.setState({
+            showMonthPopup: !this.state.showMonthPopup
+        })
+    }
+    renderMonthNav = () => {
+        return (
+            <span className="label-month" onClick={e => this.onMonthChange(e, this.month())}>
 
+                {this.month()}
+                {this.state.showMonthPopup && this.renderSelectList(moment.months())}
+            </span>
+        )
+    }
+    setMonth = month => {
+        const monthNo = moment.months().indexOf(month);
+        let dateContext = Object.assign({}, this.state.dateContext);
+        dateContext = moment(dateContext).set("month", monthNo);
+        this.setState({ dateContext });
+    }
+    onSelectChange = (e, data) => {
+        this.setMonth(data);
+    }
+    renderSelectList = (array) => {
+        return (
+            <div className="month-popup">
+                {array.map(el => <div key={el}><a href="#" onClick={e => this.onSelectChange(e, el)}>{el}</a></div>)}
+            </div>
+        )
+    }
     render() {
         return (
             <div className="calendar-container">
                 <table className="calendar">
                     <thead>
-                        <tr className="calendar-header"></tr>
+                        <tr className="calendar-header">
+                            <td colSpan="5">
+                                {this.renderMonthNav()}
+                            </td>
+                        </tr>
                     </thead>
                     <tbody>
                         <tr >{this.renderWeekDays()}</tr>
