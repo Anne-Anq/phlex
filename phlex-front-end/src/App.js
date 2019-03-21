@@ -23,28 +23,10 @@ class App extends Component {
       photographers: []
     },
     error: {},
-    atHome: false
   };
 
-  componentDidMount() {
-    const photographers = getPgs();
-    let { atHome } = this.state;
-    atHome = this.props.location.pathname === '/' ? true : false;
-    this.setState(prevState => ({
-      data: { ...prevState.data, photographers: [...photographers], ...prevState.atHome = atHome }
-    }))
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const photographers = getPgs();
-    let { atHome } = this.state
-    atHome = nextProps.location.pathname === '/' ? true : false;
-    this.setState(prevState => ({
-      data: { ...prevState.data, photographers: [...photographers], ...prevState.atHome = atHome }
-    }))
-  }
-
   handleChange = e => {
+    console.log(e.target.name, e.target.value);
     const { value, id } = e.target;
     let search = {};
     Object.keys(this.state.data.search).map(input => (
@@ -58,7 +40,7 @@ class App extends Component {
       }));
   };
 
-  handleSearch = () => {
+  handleSubmitSearch = () => {
     const searchString = this.state.data.search.photoType;
     if (searchString) {
       return this.props.history.push('/result');
@@ -66,10 +48,9 @@ class App extends Component {
   };
 
   render() {
-    const { atHome } = this.state;
     return (
       <div className="App">
-        <Navbar isLandingPage={atHome} />
+        <Navbar  {...this.props}/>
         <Switch>
           <Route
             path="/result"
@@ -101,7 +82,7 @@ class App extends Component {
                 {...props}
                 {...this.state}
                 onChange={e => this.handleChange(e)}
-                onClick={() => this.handleSearch()}
+                onClick={this.handleSubmitSearch}
               />
             )}
           />

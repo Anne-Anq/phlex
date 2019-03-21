@@ -4,11 +4,12 @@ import "../stylesheets/Navbar.css";
 class Navbar extends Component {
   state = {};
   render() {
+    const { location }= this.props;
     return (
       <nav
         id="navbar"
         className={
-          this.props.isLandingPage
+          location.pathname === '/'
             ? "navbar navbar-expand-lg navbar-dark bg-dark"
             : "navbar navbar-expand-lg navbar-light bg-light"
         }

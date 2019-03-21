@@ -14,10 +14,10 @@ class LandingPage extends Component {
                     <span className="fa fa-search form-control-feedback"></span>
                     <input
                         type="text"
-                        name="photoType"
+                        id="photoType"
                         className="form-control form-control-danger"
                         onKeyDown={e => e.keyCode === 13 && this.props.onClick(e)}
-                        onChange={(e) => this.props.onChange(e)}
+                        onChange={e => this.props.onChange(e)}
                         placeholder="Search for a photographer"
                     />
                 </div>
