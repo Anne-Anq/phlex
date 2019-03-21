@@ -7,10 +7,7 @@ class PhotographerSignup extends Component {
 			return (
 				<div className="body">
 					<div className="block title">
-						<h4>
-							Register to be a certified Phlex photographer to start producing quality and meaningful
-							photography solutions.
-						</h4>
+						<h4>Register to start producing high quality, meaningful photography solutions.</h4>
 					</div>
 
 					<div id="fields">
@@ -54,30 +51,27 @@ class PhotographerSignup extends Component {
 								</select>
 							</div>
 						</div>
-                        <form>
-                            <div class="form-group">
-                                <label for="exampleFormControlFile1">Upload Some Photos To Make You Stand Out!</label>
-                                <input type="file" class="form-control-file" id="exampleFormControlFile1"/>
-                            </div>
-                            </form>
-						
-							<label for="priceRange">{`Price Range: `}</label>
-							<input
-								id="priceRange"
-								type="range"
-								min="0"
-								max="1000"
-								step="10"
-								class="form-control"
-								
-							/>
-						
+						<form>
+							<div id="fileUpload" class="form-group">
+								<label for="exampleFormControlFile1">Upload Some Photos To Make You Stand Out!</label>
+								<input type="file" class="form-control-file" id="exampleFormControlFile1" />
+							</div>
+						</form>
+
+						<label for="priceRange">{`Price Range: `}</label>
+						<input id="priceRange" type="range" min="0" max="1000" step="10" class="form-control" />
+
 						<div class="form-group">
 							<label for="exampleFormControlTextarea1">Write a short bio</label>
-							<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" />
+							<textarea
+								class="form-control"
+								id="exampleFormControlTextarea1"
+								rows="3"
+								placeholder="Tell us about yourself"
+							/>
 						</div>
 					</div>
-					<button type="submit" class="btn btn-primary">
+					<button type="submit" class="btn btn-danger">
 						Sign up
 					</button>
 				</div>
