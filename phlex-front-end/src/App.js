@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Switch, Route, Redirect, withRouter } from "react-router-dom";
+import { Switch, Route, Redirect, withRouter, BrowserRouter } from "react-router-dom";
 import getPgs from "./service/pgFakeDb";
 //Components
 import Navbar from "./components/Navbar";
@@ -73,6 +73,7 @@ class App extends Component {
           />
           <Route
             path="/join"
+            // component={PhotographerSignup}
             render={props => <PhotographerSignup />}
           />
           <Route

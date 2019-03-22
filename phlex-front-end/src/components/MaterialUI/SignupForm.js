@@ -6,7 +6,9 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import ControlledOpenSelect from "./Select";
 import "../../stylesheets/Material.css";
+import { Select } from '@material-ui/core/Select';
 
 export default class FormDialog extends React.Component {
   state = {
@@ -45,7 +47,6 @@ export default class FormDialog extends React.Component {
               fullWidth
             />
             <TextField
-              autoFocus
               margin="dense"
               id="email"
               label="Email Address"
@@ -53,13 +54,24 @@ export default class FormDialog extends React.Component {
               fullWidth
             />
             <TextField
-              autoFocus
               margin="dense"
               id="password"
               label="Password"
               type="text"
               fullWidth
             />
+            <TextField
+              margin="dense"
+              id="city"
+              label="City"
+              type="text"
+              fullWidth
+              
+            />
+            <ControlledOpenSelect
+              
+            />
+
           </DialogContent>
           <DialogActions>
             <Button onClick={this.handleClose} color="primary">
@@ -72,7 +84,7 @@ export default class FormDialog extends React.Component {
         </Dialog>
       </div>
     );
-  
+      
   
   }
 }
