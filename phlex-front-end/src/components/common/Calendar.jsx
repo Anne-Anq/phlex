@@ -199,18 +199,7 @@ class Calendar extends Component {
         </div>)
     }
     render() {
-        const notAvailable = [
-            {
-                id: 0,
-                from: "2019-03-24",
-                to: "2019-03-26",
-            },
-            {
-                id: 1,
-                from: "2019-03-28",
-                to: "2019-03-30",
-            },
-        ];
+        const { notAvailable } = this.props.photographer;
         return (
             <div className="calendar-container p-2" onClick={(e) => this.onLeaveYearNav(e)}>
                 {this.renderNav(

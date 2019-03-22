@@ -32,7 +32,7 @@ class PgCard extends Component {
         <PgInfo photographer={photographer} />
         {/* <div className="calendar">
         </div> */}
-        <Calendar />
+        <Calendar photographer={photographer} />
       </div>
       <div className={`collapsed-data ${isCollapsed ? "is-collapsed" : ""}`}>
         <div className="insta">
