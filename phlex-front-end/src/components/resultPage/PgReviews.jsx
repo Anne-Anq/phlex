@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Stars from "../common/Stars";
+import MoreButton from "../common/buttons/MoreButton";
+import Card from '@material-ui/core/Card';
 import "../../stylesheets/PgReviews.css";
 
 class PgReviews extends Component {
@@ -17,10 +19,7 @@ class PgReviews extends Component {
             <div className="reviews">
                 {reviews && reviews.map((review, i) => (
                     <div key={`review${review.id}`} className={isMoreClicked || i === 0 ? "shown-review" : "hidden-review"} >
-                        <div className="user-avatar">
-                            <img src={review.user.avatarURL}
-                                alt={`${review.user.fName}${review.user.lName}Avatar`} />
-                        </div>
+                        <Card className="user-avatar"><img src={review.user.avatarURL} alt={`${review.user.fName}${review.user.lName}Avatar`}></img></Card>
                         <div className="user-info">
                             <div className="user-name">{`${review.user.fName} ${review.user.lName}`}</div>
                             <Stars rating={review.rating} />
@@ -29,7 +28,12 @@ class PgReviews extends Component {
                         <div className="review-text">{review.review}</div>
                     </div>
                 ))}
-                <button type="button" className={`btn btn-link more ${reviews.length <= 1 ? "hidden" : ""}`} onClick={this.handleClick}>{isMoreClicked ? "less..." : "more..."}</button>
+                <div className="more-div">
+                    {
+                        reviews.length > 1 &&
+                        <MoreButton variant="outlined" onClick={this.handleClick} label={!isMoreClicked ? "more..." : "less..."} />
+                    }
+                </div>
             </div>
         );
     }

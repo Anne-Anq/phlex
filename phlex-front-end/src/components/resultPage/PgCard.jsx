@@ -4,10 +4,9 @@ import PgInfo from "./PgInfo";
 import PgAvatar from './PgAvatar';
 import PgReviews from "./PgReviews";
 import Calendar from "../common/Calendar";
-
-
+import Card from '@material-ui/core/Card';
+import MoreButton from "../common/buttons/MoreButton";
 import "../../stylesheets/PgCard.css";
-
 
 class PgCard extends Component {
   state = {
@@ -32,17 +31,26 @@ class PgCard extends Component {
           <PgInfo photographer={photographer} />
           <Calendar photographer={photographer} />
         </div>
-        <button type="button" onClick={this.handleClick} className="btn btn-link more">more...</button>
       </div>
       <div className={`collapsed-data ${isCollapsed ? "is-collapsed" : ""}`}>
         <div className="insta">
           <div className="pretend-pix">
-            {photographer.portfolio.map(({ id, picURL, alt }) => (<div key={`pic-${id}`} className="pretend-pic"><img src={picURL} alt={alt}></img></div>))}
+            {photographer.portfolio.map(({ id, picURL, alt }) => (
+              <Card key={`pic-${id}`} className="pretend-pic"><img src={picURL} alt={alt}></img></Card>
+            ))}
           </div>
-          <button type="button" className="btn btn-link more">more...</button>
+          <div className="more-div">
+            <MoreButton label="more..." variant="outlined" />
+          </div>
         </div>
         <PgReviews photographer={photographer} />
       </div>
+      <div className="more-div mr-3">
+        <MoreButton variant="contained" onClick={this.handleClick} label={isCollapsed ? "more..." : "less..."} />
+      </div>
+
+
+
     </div >;
   }
 }
