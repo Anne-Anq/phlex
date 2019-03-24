@@ -6,8 +6,13 @@
 .preview{
   background-color: #6f80f0;
   flex:45vh 1 1 ;
+  display: flex;
+  flex-direction: column;
+}
+.preview-data{
   display:flex;
 }
+
 
 .collapsed-data{
   background-color: #6f80f0;

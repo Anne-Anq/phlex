@@ -14,7 +14,6 @@ class PgCard extends Component {
     isCollapsed: true
   };
   componentDidMount() {
-    //createCal();
     const { isFirst } = this.props;
     this.setState({ isCollapsed: !isFirst });
 
@@ -27,12 +26,13 @@ class PgCard extends Component {
     const { photographer } = this.props;
     const { isCollapsed } = this.state;
     return <div className="pgCard">
-      <div className="preview" onClick={this.handleClick}>
-        <PgAvatar photographer={photographer} />
-        <PgInfo photographer={photographer} />
-        {/* <div className="calendar">
-        </div> */}
-        <Calendar photographer={photographer} />
+      <div className="preview" >
+        <div className="preview-data" >
+          <PgAvatar photographer={photographer} />
+          <PgInfo photographer={photographer} />
+          <Calendar photographer={photographer} />
+        </div>
+        <button type="button" onClick={this.handleClick} className="btn btn-link more">more...</button>
       </div>
       <div className={`collapsed-data ${isCollapsed ? "is-collapsed" : ""}`}>
         <div className="insta">
