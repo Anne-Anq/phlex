@@ -37,7 +37,7 @@ class PgCard extends Component {
       <div className={`collapsed-data ${isCollapsed ? "is-collapsed" : ""}`}>
         <div className="insta">
           <div className="pretend-pix">
-            {[0, 1, 2, 3, 4, 5].map((el) => (<div key={el} className="pretend-pic">{el}</div>))}
+            {photographer.portfolio.map(({ id, picURL, alt }) => (<div key={`pic-${id}`} className="pretend-pic"><img src={picURL} alt={alt}></img></div>))}
           </div>
           <button type="button" className="btn btn-link more">more...</button>
         </div>
