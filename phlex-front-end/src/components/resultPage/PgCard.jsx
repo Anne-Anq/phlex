@@ -45,7 +45,7 @@ class PgCard extends Component {
         </div>
         <PgReviews photographer={photographer} />
       </div>
-      <div className="more-div mr-3">
+      <div className="more-div card-collapse-btn">
         <MoreButton variant="contained" onClick={this.handleClick} label={isCollapsed ? "more..." : "less..."} />
       </div>
 
