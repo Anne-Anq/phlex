@@ -6,9 +6,9 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import ControlledOpenSelect from "./Select";
+import ProvinceSelect from "../UserRegister/ProvinceSelect";
+import InputButton from "./InputButton";
 import "../../stylesheets/Material.css";
-import { Select } from '@material-ui/core/Select';
 
 export default class FormDialog extends React.Component {
   state = {
@@ -30,13 +30,13 @@ export default class FormDialog extends React.Component {
       <div className='signup'>
         <Dialog
           open={this.state.open}
-          onClose={this.handleClose}
+        //   onClose={this.handleClose}
           aria-labelledby="form-dialog-title"
         >
           <DialogTitle id="form-dialog-title">Register</DialogTitle>
           <DialogContent>
             <DialogContentText>
-              To Register Successsfully, We Need To Get To Know You A Little Better
+              To be a registered Phlex photographer, we need to get to know you a little better
             </DialogContentText>
             <TextField
               autoFocus
@@ -57,7 +57,7 @@ export default class FormDialog extends React.Component {
               margin="dense"
               id="password"
               label="Password"
-              type="text"
+              type="password"
               fullWidth
             />
             <TextField
@@ -68,9 +68,21 @@ export default class FormDialog extends React.Component {
               fullWidth
               
             />
-            <ControlledOpenSelect
-              
+            <ProvinceSelect margin='dense' fullWidth
             />
+              <TextField
+                id="standard-full-width"
+                label="Bio"
+                style={{ marginTop: 10 }}
+                placeholder="Let people know more about you"
+                fullWidth
+                margin="normal"
+                InputLabelProps={{
+                    shrink: true,
+                }}
+                />
+                
+         <InputButton name='Upload some photos'/>
 
           </DialogContent>
           <DialogActions>
@@ -78,7 +90,7 @@ export default class FormDialog extends React.Component {
               Cancel
             </Button>
             <Button onClick={this.handleClose} color="primary">
-              Subscribe
+              Register
             </Button>
           </DialogActions>
         </Dialog>

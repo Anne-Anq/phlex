@@ -1,14 +1,13 @@
 import React, { Component } from "react";
-import { Switch, Route, Redirect, withRouter, BrowserRouter } from "react-router-dom";
+import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import getPgs from "./service/pgFakeDb";
 //Components
 import Navbar from "./components/Navbar";
 import ResultPage from "./components/ResultPage";
 import LandingPage from './components/LandingPage';
-import PhotographerSignup from "./components/PhotographerSignup/PhotographerSignupComp";
-
-// Material 
-import MaterialSignup from "./components/MaterialUI/SignupForm";
+import PhotographerSignup from "./components/PhotographerSignup/PhotgrapherSignupMat";
+import UserSignup from "./components/UserRegister/SignupForm";
+import SignIn from "./components/SignIn/SignIn";
 
 //Stylesheets
 import "./App.css";
@@ -79,10 +78,10 @@ class App extends Component {
           <Route
             path="/register"
             render={
-              props => <MaterialSignup />
+              props => <UserSignup />
             }
           />
-          <Route path="/login" render={props => <h1>I am the login page</h1>} />
+          <Route path="/login" render={props => <SignIn/>} />
           <Route
             exact
             path="/"
