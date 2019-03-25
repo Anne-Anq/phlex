@@ -6,7 +6,7 @@ const getDateContext = (myDate) => {
         date: myDate,
         day: myDate.format("D"),
         year: myDate.format("Y"),
-        month: myDate.format("MMM"),
+        month: myDate.format("MMMM"),
         daysInMonth: myDate.daysInMonth(),
         firstDayOfMonth: moment(myDate).startOf('month').format('d'),
     }

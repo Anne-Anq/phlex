@@ -4,6 +4,7 @@ import Button from '@material-ui/core/Button';
 import { withStyles } from '@material-ui/core/styles';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
+import MenuItem from '@material-ui/core/MenuItem';
 import DialogContent from '@material-ui/core/DialogContent';
 import InputLabel from '@material-ui/core/InputLabel';
 import Input from '@material-ui/core/Input';
@@ -51,15 +52,15 @@ class DialogSelect extends React.Component {
                         <form className={classes.container}>
                             {fields && fields.map(field =>
                                 <FormControl key={field.label} className={classes.formControl}>
-                                    <InputLabel htmlFor={field.name}>{field.label}</InputLabel>
+                                    <InputLabel htmlFor={field.name}>{field.name}</InputLabel>
                                     <Select
-                                        native
                                         onChange={onChange}
-                                        input={<Input id={field.name} />}
+                                        value={field.value}
+                                        input={<Input name={field.name} />}
                                     >
-                                        <option value=""></option>
+                                        <MenuItem value=""></MenuItem>
                                         {field.options && field.options.map((option, i) =>
-                                            <option key={option} value={option}>{option}</option>
+                                            <MenuItem key={option} value={option}>{option}</MenuItem>
                                         )}
                                     </Select>
                                 </FormControl>

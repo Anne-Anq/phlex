@@ -17,7 +17,7 @@ class Calendar extends Component {
         this.setState({ dateContext: navigate(action, this.state.dateContext) });
     }
     handleSelectDate = (e) => {
-        this.setState({ dateContext: setDate(e.target.id, e.target.value, this.state.dateContext) });
+        this.setState({ dateContext: setDate(e.target.name, e.target.value, this.state.dateContext) });
     }
     renderNav = (props) => {
         return (<div className="calendar-header p-2">
@@ -57,8 +57,8 @@ class Calendar extends Component {
         const { notAvailable } = this.props.photographer;
         const { year, month } = this.state.dateContext;
         const navFields = [
-            { name: "month", label: "Month", options: monthsArr },
-            { name: "year", label: "Year", options: yearsArr },
+            { name: "month", label: "Month", options: monthsArr, value: month },
+            { name: "year", label: "Year", options: yearsArr, value: year },
         ]
         return (
             <div className="calendar-container p-2">
