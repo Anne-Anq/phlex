@@ -18,6 +18,8 @@ export default class FormDialog extends React.Component {
     }
 
   }
+
+  // make new data and insert into state
   handleChange = e => {
     const { value, id } = e.target;
     let data = {};
@@ -28,6 +30,8 @@ export default class FormDialog extends React.Component {
     ));
     this.setState({ data });
   };
+
+  // range logic
   renderRange(path, label, min = 0, max = 100, step = 1, val) {
     const ticks = [];
     for (let i = min; i <= max; i += step * 5) {
@@ -112,6 +116,8 @@ export default class FormDialog extends React.Component {
                 />
                 
          <InputButton name='Upload some photos'/>
+
+         {/* render sliders */}
          {this.renderRange(
           "addPrice",
           "$ / each additional 5 pictures ",
