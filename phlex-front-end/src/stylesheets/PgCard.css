@@ -1,27 +1,41 @@
+/* Red #f44336 */
+/* Grey #9e9e9e */
+/* Dark Grey #424242 */
+/* light grey (navbar)#f8f9fa*/
+
+
 .pgCard {
-  background-color: #f0f2ff;
   display: flex;
   flex-direction: column;
+  margin-bottom: 5vh;
 }
 .preview{
-  background-color: #6f80f0;
-  flex:45vh 1 1 ;
+  flex:35vh 1 1 ;
+  display: flex;
+  flex-direction: column;  
+  margin: 0 25px 0 25px;
+}
+.preview-data{
   display:flex;
+}
+.preview > button.more{
+  color: red;
+  padding-right: 20px;
 }
 
 .collapsed-data{
-  background-color: #6f80f0;
   display: flex;
   flex-direction: column;
+  margin-top:25px;
 }
 .collapsed-data.is-collapsed{
   display: none;
 }
 .insta{
-  background-color: #f0f2ff;
+  background-color: #f8f9fa;  ;
   flex: calc(22.5vh-5px) 1 1;
-  margin: 5px 5px 0 5px; 
-  padding: 10px;
+  margin: 0px 25px 25px 25px;
+  padding: 8px 8px 0 8px;
   border-radius:5px;    
   text-align: end;
   display: flex; 
@@ -31,18 +45,19 @@
 .pretend-pix{
   display:flex;
   align-items: stretch;
-  height: 80px;
+  justify-content: space-between;
+  overflow: hidden;
 }
 .pretend-pic{
-  flex: 15% 1 1;
-  background: linear-gradient(135deg, rgba(236,195,239,1) 0%, rgba(178,39,185,1) 0%, rgba(142,219,240,1) 100%);
-  border-radius: 5px; 
-  border: 1px solid black;
-  margin: 10px;
+  margin: 8px 8px 0 8px;
+  overflow: hidden;
 }
-button.more{
-  text-align: end;
+.pretend-pic > img{
+  height: 15vh;
 }
-button.more.hidden{
-  visibility: hidden;
+
+.more-div{
+ height:48px; 
+ display: flex; 
+ justify-content: flex-end;
 }
