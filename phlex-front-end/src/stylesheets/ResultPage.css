@@ -10,15 +10,15 @@
 }
 .searchForm {
   background-color: #9e9e9e;
-  width:25%;
-  min-width: 250px;
-  max-width: 350px;
+  flex:248px 1 0;
+  /* min-width: 250px;
+  max-width: 350px; */
   height: 90vh;
 }
 .scroll{
     height: 90vh;
     overflow-Y: scroll;  
-    flex: 744px 1 0;
+    flex: 744px 3 1;
 }
 .pgCards {
   display: flex;
