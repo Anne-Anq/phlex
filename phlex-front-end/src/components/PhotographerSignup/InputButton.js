@@ -26,7 +26,7 @@ function TextButtons(props) {
         type="file"
       />
       <label htmlFor="text-button-file">
-        <Button component="span" className={classes.button}>
+        <Button variant="outlined" component="span" className={classes.button}>
           {name}
         </Button>
       </label>
