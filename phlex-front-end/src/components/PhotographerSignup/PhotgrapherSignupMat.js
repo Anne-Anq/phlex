@@ -11,6 +11,50 @@ import InputButton from "./InputButton";
 import "../../stylesheets/Material.css";
 
 export default class FormDialog extends React.Component {
+  state = {
+    data: {
+      addPrice:5,
+      basePrice:10,
+    }
+
+  }
+  handleChange = e => {
+    const { value, id } = e.target;
+    let data = {};
+    Object.keys(this.state.data).map(input => (
+      input === id
+        ? (data[input] = value)
+        : (data[input] = this.state.data[input])
+    ));
+    this.setState({ data });
+  };
+  renderRange(path, label, min = 0, max = 100, step = 1, val) {
+    const ticks = [];
+    for (let i = min; i <= max; i += step * 5) {
+      ticks.push(i);
+    }
+    return (
+      <div className="form-group text-left p-3">
+        <label htmlFor={path}>{`${label}: ${val}`}</label>
+        <input
+          id={path}
+          className="form-control"
+          type="range"
+          min={min}
+          max={max}
+          step={step}
+          defaultValue={val}
+          onChange={this.handleChange}
+          list="tickmarks"
+        />
+        <datalist id="tickmarks">
+          {ticks.map(tick => (
+            <option key={tick} value={tick} />
+          ))}
+        </datalist>
+      </div>
+    );
+  }
   render() {
     return (
       <div className='signup'>
@@ -68,7 +112,22 @@ export default class FormDialog extends React.Component {
                 />
                 
          <InputButton name='Upload some photos'/>
-
+         {this.renderRange(
+          "addPrice",
+          "$ / each additional 5 pictures ",
+          0,
+          500,
+          10,
+          this.state.data.addPrice
+        )}
+        {this.renderRange(
+          "basePrice",
+          "$ / each additional 5 pictures ",
+          0,
+          500,
+          10,
+          this.state.data.basePrice
+        )}
           </DialogContent>
           <DialogActions>
             <Button onClick={this.props.handleClose} color="primary">
