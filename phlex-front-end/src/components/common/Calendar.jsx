@@ -1,130 +1,76 @@
 import React, { Component } from 'react';
-import moment from "moment";
+import Select from "../common/buttons/Select";
+import { getToday, getDateContext, weekDays, getWeeksInMonth, setDate, navigate, monthsArr, yearsArr } from "../../logics/calendar";
 import "../../stylesheets/Calendar.css";
 
 class Calendar extends Component {
     state = {
-        dateContext: moment(),
-        today: moment(),
-        showMonthPopup: false,
-        showYearPopup: false,
+        dateContext: "",
+        today: "",
     }
-    // weekdays = moment.weekdays();
-    // //weekdaysShort = moment.weekdaysShort();
-    // months = moment.months();
-    year = () => {
-        return this.state.dateContext.format("Y");
+    componentDidMount() {
+        const today = getToday();
+        const dateContext = getDateContext(today.date);
+        this.setState({ dateContext, today });
     }
-    month = () => {
-        return this.state.dateContext.format("MMM");
+    handleNavigation = (action) => {
+        this.setState({ dateContext: navigate(action, this.state.dateContext) });
     }
-    daysInMonth = () => {
-        return this.state.dateContext.daysInMonth();
+    handleSelectDate = (e) => {
+        this.setState({ dateContext: setDate(e.target.id, e.target.value, this.state.dateContext) });
     }
-    currentDate = () => {
-        return this.state.dateContext.get("date");
+    renderNav = (props) => {
+        return (<div className="calendar-header p-2">
+            <i className="fas fa-angle-double-left"
+                onClick={() => this.handleNavigation("prevYear")}
+            ></i>
+            <i className="fas fa-chevron-left"
+                onClick={() => this.handleNavigation("prevMonth")}
+            ></i>
+            {props}
+            <i className="fas fa-chevron-right"
+                onClick={() => this.handleNavigation("nextMonth")}
+            ></i>
+            <i className="fas fa-angle-double-right"
+                onClick={() => this.handleNavigation("nextYear")}
+            ></i>
+        </div>)
     }
-    currentDay = () => {
-        return this.state.dateContext.format("D");
-    }
-    firstDayOfMonth = () => {
-        let dateContext = this.state.dateContext;
-        let firstDay = moment(dateContext).startOf('month').format('d');
-        return firstDay;
-    }
+
     renderWeekDays = () => {
-        return moment.weekdaysShort().map((day) => <td key={day} className="week-day">{day}</td>);
+        return <tr>{weekDays.map((day) => <td key={day} className="week-day">{day}</td>)}</tr>
     }
-    renderPrevMonthDays = () => {
-        const blanks = [];
-        for (let i = 0; i < this.firstDayOfMonth(); i++) {
-            blanks.push(<td key={`empty-${i}`} className="emptySlot">{""}</td>)
-        }
-        return blanks;
-    }
-    renderDaysInMonth = () => {
-        const daysInMonth = [];
-        for (let d = 1; d <= this.daysInMonth(); d++) {
-            const className = (d === this.currentDay() ? "day current-day" : "day")
-            daysInMonth.push(
-                <td key={`day-${d}`} className={className}>
-                    <span>{d}</span>
-                </td>
-            )
-        }
-        return daysInMonth;
-    }
-    renderTotalSlots = () => {
-        const totalSlots = [...this.renderPrevMonthDays(), ...this.renderDaysInMonth()]
-        const rows = [];
-        let cells = [];
-        totalSlots.forEach((cell, i) => {
-            if (i === 0 || (i % 7) !== 0) {
-                cells.push(cell);
-            } else {
-                let insertRow = cells.slice();
-                rows.push(insertRow);
-                cells = [];
-                cells.push(cell);
-            }
-            if (i === totalSlots.length - 1) {
-                let insertRow = cells.slice();
-                rows.push(insertRow);
-            }
-        })
-        const trElements = rows.map((row, i) => {
-            return (
-                <tr key={`row-${i}`}>
-                    {row}
+    renderDays = (notAvailable) => {
+        const { today, dateContext } = this.state;
+        const weeksInMonth = getWeeksInMonth(today, dateContext, notAvailable);
+        return (
+            weeksInMonth.map((week, i) =>
+                <tr key={`week-${i}`}>
+                    {week.map(day => <td key={day.key} className={day.className}>
+                        {day.content}
+                    </td>)}
                 </tr>
             )
-        })
-        return trElements;
-    }
-    onMonthChange = (e, month) => {
-        this.setState({
-            showMonthPopup: !this.state.showMonthPopup
-        })
-    }
-    renderMonthNav = () => {
-        return (
-            <span className="label-month" onClick={e => this.onMonthChange(e, this.month())}>
-
-                {this.month()}
-                {this.state.showMonthPopup && this.renderSelectList(moment.months())}
-            </span>
-        )
-    }
-    setMonth = month => {
-        const monthNo = moment.months().indexOf(month);
-        let dateContext = Object.assign({}, this.state.dateContext);
-        dateContext = moment(dateContext).set("month", monthNo);
-        this.setState({ dateContext });
-    }
-    onSelectChange = (e, data) => {
-        this.setMonth(data);
-    }
-    renderSelectList = (array) => {
-        return (
-            <div className="month-popup">
-                {array.map(el => <div key={el}><a href="#" onClick={e => this.onSelectChange(e, el)}>{el}</a></div>)}
-            </div>
         )
     }
     render() {
+        const { notAvailable } = this.props.photographer;
+        const { year, month } = this.state.dateContext;
+        const navFields = [
+            { name: "month", label: "Month", options: monthsArr },
+            { name: "year", label: "Year", options: yearsArr },
+        ]
         return (
-            <div className="calendar-container">
-                <table className="calendar">
+            <div className="calendar-container p-2">
+                {this.renderNav(
+                    <Select onChange={this.handleSelectDate} label={`${month} ${year}`} fields={navFields} />
+                )}
+                <table className="calendar p-2">
                     <thead>
-                        <tr className="calendar-header">
-                            <td colSpan="5">
-                                {this.renderMonthNav()}
-                            </td>
-                        </tr>
+                        {this.renderWeekDays()}
                     </thead>
                     <tbody>
-                        <tr >{this.renderWeekDays()}</tr>
-                        {this.renderTotalSlots()}
+                        {this.renderDays(notAvailable)}
                     </tbody>
                 </table>
             </div>

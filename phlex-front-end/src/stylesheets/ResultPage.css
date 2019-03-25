@@ -1,10 +1,18 @@
+/* Red #f44336 */
+/* Grey #9e9e9e */
+/* Dark Grey #424242 */
+/* light grey (navbar)#f8f9fa */
+
+
 .resultPage {
   display: flex;
   flex-wrap: wrap;
 }
 .searchForm {
-  background-color: #7f9dff;
-  flex: 248px 1 0;
+  background-color: #9e9e9e;
+  width:25%;
+  min-width: 250px;
+  max-width: 350px;
   height: 90vh;
 }
 .scroll{
@@ -15,4 +23,6 @@
 .pgCards {
   display: flex;
   flex-direction: column;
+  padding-top:25px;
+  background-color: #424242;
 }

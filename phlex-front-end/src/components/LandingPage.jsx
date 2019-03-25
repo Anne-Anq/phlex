@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import '../stylesheets/LandingPage.css';
 
 class LandingPage extends Component {
+    state= {};
 
     render() {
         return (

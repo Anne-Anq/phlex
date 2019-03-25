@@ -4,17 +4,15 @@ import PgInfo from "./PgInfo";
 import PgAvatar from './PgAvatar';
 import PgReviews from "./PgReviews";
 import Calendar from "../common/Calendar";
-
-
+import Card from '@material-ui/core/Card';
+import MoreButton from "../common/buttons/MoreButton";
 import "../../stylesheets/PgCard.css";
-
 
 class PgCard extends Component {
   state = {
     isCollapsed: true
   };
   componentDidMount() {
-    //createCal();
     const { isFirst } = this.props;
     this.setState({ isCollapsed: !isFirst });
 
@@ -27,22 +25,32 @@ class PgCard extends Component {
     const { photographer } = this.props;
     const { isCollapsed } = this.state;
     return <div className="pgCard">
-      <div className="preview" onClick={this.handleClick}>
-        <PgAvatar photographer={photographer} />
-        <PgInfo photographer={photographer} />
-        {/* <div className="calendar">
-        </div> */}
-        <Calendar />
+      <div className="preview" >
+        <div className="preview-data" >
+          <PgAvatar photographer={photographer} />
+          <PgInfo photographer={photographer} />
+          <Calendar photographer={photographer} />
+        </div>
       </div>
       <div className={`collapsed-data ${isCollapsed ? "is-collapsed" : ""}`}>
         <div className="insta">
           <div className="pretend-pix">
-            {[0, 1, 2, 3, 4, 5].map((el) => (<div key={el} className="pretend-pic">{el}</div>))}
+            {photographer.portfolio.map(({ id, picURL, alt }) => (
+              <Card key={`pic-${id}`} className="pretend-pic"><img src={picURL} alt={alt}></img></Card>
+            ))}
           </div>
-          <button type="button" className="btn btn-link more">more...</button>
+          <div className="more-div">
+            <MoreButton label="more..." variant="outlined" />
+          </div>
         </div>
         <PgReviews photographer={photographer} />
       </div>
+      <div className="more-div mr-3">
+        <MoreButton variant="contained" onClick={this.handleClick} label={isCollapsed ? "more..." : "less..."} />
+      </div>
+
+
+
     </div >;
   }
 }

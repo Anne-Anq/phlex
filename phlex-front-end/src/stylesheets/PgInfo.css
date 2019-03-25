@@ -1,7 +1,13 @@
+/* Red #f44336 */
+/* Grey #9e9e9e */
+/* Dark Grey #424242 */
+/* light grey (navbar)#f8f9fa */
+
 .info{
-    background-color: #f0f2ff;
-    flex:30% 1 1;
-    margin: 25px 0; 
+    background-color: #f8f9fa ;
+    flex:50% 1 1;
+    margin: 0 25px; 
+    padding: 10px;
     border-radius:5px;
     display: flex; 
     flex-direction: column;
