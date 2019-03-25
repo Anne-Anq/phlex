@@ -20,7 +20,7 @@ class Calendar extends Component {
         this.setState({ dateContext: setDate(e.target.name, e.target.value, this.state.dateContext) });
     }
     renderNav = (props) => {
-        return (<div className="calendar-header p-2">
+        return (<div className="calendar-header">
             <i className="fas fa-angle-double-left"
                 onClick={() => this.handleNavigation("prevYear")}
             ></i>
@@ -61,11 +61,11 @@ class Calendar extends Component {
             { name: "year", label: "Year", options: yearsArr, value: year },
         ]
         return (
-            <div className="calendar-container p-2">
+            <div className="calendar-container">
                 {this.renderNav(
                     <Select onChange={this.handleSelectDate} label={`${month} ${year}`} fields={navFields} />
                 )}
-                <table className="calendar p-2">
+                <table className="calendar">
                     <thead>
                         {this.renderWeekDays()}
                     </thead>

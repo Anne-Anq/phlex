@@ -1,6 +1,8 @@
 .pg-avatar{
     /* background-color: #f0f2ff; */
-    flex: 25% 1 1 ;
+    flex:1;
+    height:35vh;
+    min-width: 230px;
     max-height: 100%;
     overflow: hidden;
     /* margin: 25px;  */
@@ -8,7 +10,12 @@
     object-fit: contain;
   
   }
+  @media(max-width: 526px) {
+    .pg-avatar{
+        width:100%;
+    }
+  }
   .pg-avatar >img {
-      max-width: 348px;
+      max-width: 500px;
       border-radius:5px;  
   }

@@ -18,7 +18,9 @@
 .scroll{
     height: 90vh;
     overflow-Y: scroll;  
-    flex: 744px 3 1;
+    /* flex: 744px 3 3; */
+    flex:278px 5 0;
+    min-width: 250px;
 }
 .pgCards {
   display: flex;
