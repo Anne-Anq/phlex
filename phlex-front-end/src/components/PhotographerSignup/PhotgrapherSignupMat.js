@@ -11,26 +11,11 @@ import InputButton from "./InputButton";
 import "../../stylesheets/Material.css";
 
 export default class FormDialog extends React.Component {
-  state = {
-    open: true,
-  };
-
-  handleClickOpen = () => {
-    this.setState({ open: true });
-  };
-
-  handleClose = () => {
-    this.setState({ open: false });
-    window.location.pathname = '/result'
-    
-  };
-
   render() {
     return (
       <div className='signup'>
         <Dialog
-          open={this.state.open}
-        //   onClose={this.handleClose}
+          open={this.props.isOpen}
           aria-labelledby="form-dialog-title"
         >
           <DialogTitle id="form-dialog-title">Register</DialogTitle>
@@ -86,10 +71,10 @@ export default class FormDialog extends React.Component {
 
           </DialogContent>
           <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
+            <Button onClick={this.props.handleClose} color="primary">
               Cancel
             </Button>
-            <Button onClick={this.handleClose} color="primary">
+            <Button onClick={this.props.handleClose} color="primary">
               Register
             </Button>
           </DialogActions>
