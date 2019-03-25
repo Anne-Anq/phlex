@@ -6,29 +6,14 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-// import ControlledOpenSelect from "./ProvinceSelect";
 import "../../stylesheets/Material.css";
 
 export default class FormDialog extends React.Component {
-  state = {
-    open: true,
-  };
-
-  handleClickOpen = () => {
-    this.setState({ open: true });
-  };
-
-  handleClose = () => {
-    this.setState({ open: false });
-    window.location.pathname = '/result'
-    
-  };
-
   render() {
     return (
       <div className='signup'>
         <Dialog
-          open={this.state.open}
+          open={this.props.isOpen}
           // onClose={this.handleClose}
           aria-labelledby="form-dialog-title"
         >
@@ -59,24 +44,13 @@ export default class FormDialog extends React.Component {
               type="password"
               fullWidth
             />
-            {/* <TextField
-              margin="dense"
-              id="city"
-              label="City"
-              type="text"
-              fullWidth
-              
-            />
-            <ControlledOpenSelect
-              
-            /> */}
 
           </DialogContent>
           <DialogActions>
-            <Button onClick={this.handleClose} color="primary">
+            <Button onClick={this.props.handleClose} color="primary">
               Cancel
             </Button>
-            <Button onClick={this.handleClose} color="primary">
+            <Button onClick={this.props.handleClose} color="primary">
               Register
             </Button>
           </DialogActions>

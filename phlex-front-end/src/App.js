@@ -72,7 +72,6 @@ class App extends Component {
           />
           <Route
             path="/join"
-            // component={PhotographerSignup}
             render={props => <PhotographerSignup />}
           />
           <Route
