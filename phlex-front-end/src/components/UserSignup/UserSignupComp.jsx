@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../../stylesheets/UserSignup.css';
+import 'typeface-roboto';
 
 class UserSignup extends Component {
 	state = {

@@ -5,8 +5,10 @@ import getPgs from "./service/pgFakeDb";
 import Navbar from "./components/Navbar";
 import ResultPage from "./components/ResultPage";
 import LandingPage from './components/LandingPage';
-import UserSignup from './components/UserSignup/UserSignupComp';
 import PhotographerSignup from "./components/PhotographerSignup/PhotographerSignupComp";
+
+// Material 
+import MaterialSignup from "./components/MaterialUI/SignupForm";
 
 //Stylesheets
 import "./App.css";
@@ -53,6 +55,7 @@ class App extends Component {
     }
   };
 
+
   render() {
     return (
       <div className="App">
@@ -75,7 +78,7 @@ class App extends Component {
           <Route
             path="/register"
             render={
-              props => <UserSignup />
+              props => <MaterialSignup />
             }
           />
           <Route path="/login" render={props => <h1>I am the login page</h1>} />
