@@ -5,9 +5,9 @@
 
 .reviews{
     background-color: #f8f9fa;  
-    margin: 0px 25px 0 25px;
+    margin: 0px 1vh 0 1vh;
     border-radius:5px;  
-    padding: 8px 8px 0 8px;
+    /* padding: 1vh 1vh 0 1vh; */
     text-align: end;
     display: flex; 
     flex-direction: column;
@@ -21,14 +21,14 @@
   }
   .user-avatar{
     overflow: hidden;
-    margin: 8px  8px 0  8px;
+    margin: 1vh  1vh 0  1vh;
   }
   .user-avatar>img{
     height:15vh
   }
   .user-info{
     flex: 10% 1 1  ;
-    margin: 5px 8px;;
+    margin: 1vh  1vh 0  1vh;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -36,5 +36,5 @@
   }
   .review-text{
     flex: 60% 1 1  ;
-    margin: 8px;;
+    margin: 1vh  1vh 0  1vh;
   }  

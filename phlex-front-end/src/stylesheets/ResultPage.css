@@ -23,6 +23,6 @@
 .pgCards {
   display: flex;
   flex-direction: column;
-  padding-top:25px;
+  padding-top:1vh;
   background-color: #424242;
 }

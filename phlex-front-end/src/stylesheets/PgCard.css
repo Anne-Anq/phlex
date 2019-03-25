@@ -7,13 +7,13 @@
 .pgCard {
   display: flex;
   flex-direction: column;
-  margin-bottom: 5vh;
+  margin-bottom: 1vh;
 }
 .preview{
   flex:35vh 1 1 ;
   display: flex;
   flex-direction: column;  
-  margin: 0 25px 0 25px;
+  margin: 0 1vh 0 1vh;
 }
 .preview-data{
   display:flex;
@@ -26,7 +26,7 @@
 .collapsed-data{
   display: flex;
   flex-direction: column;
-  margin-top:25px;
+  margin-top:1vh;
 }
 .collapsed-data.is-collapsed{
   display: none;
@@ -34,8 +34,8 @@
 .insta{
   background-color: #f8f9fa;  ;
   flex: calc(22.5vh-5px) 1 1;
-  margin: 0px 25px 25px 25px;
-  padding: 8px 8px 0 8px;
+  margin: 0px 1vh 1vh 1vh;
+  /* padding: 8px 8px 0 8px; */
   border-radius:5px;    
   text-align: end;
   display: flex; 
@@ -49,7 +49,7 @@
   overflow: hidden;
 }
 .pretend-pic{
-  margin: 8px 8px 0 8px;
+  margin: 1vh 1vh 0 1vh;
   overflow: hidden;
 }
 .pretend-pic > img{
@@ -57,7 +57,10 @@
 }
 
 .more-div{
- height:48px; 
+ height:6.5vh; 
  display: flex; 
  justify-content: flex-end;
+}
+more-div.card-collapse-btn{
+  margin-right: 1vh;
 }
