@@ -1,6 +1,67 @@
+/* Red #f44336 */
+/* Grey #9e9e9e */
+/* Dark Grey #424242 */
+/* light grey (navbar)#f8f9fa */
+
 .calendar-container{
-    background-color: #f0f2ff;
-    flex:30% 1 1;
-    margin: 25px; 
+    background-color: #f8f9fa;
+    flex:25% 1 1;
+    /* margin: 25px;  */
     border-radius:5px;
+  }
+  .week-day{
+    background-color: #f8f9fa;
+  }
+  .empty-slot{
+    background-color: #f8f9fa;
+  }
+  .day{
+    background-color: #f8f9fa;
+  }
+  .current-day{
+
+  }
+  .label-month{
+
+  }
+
+  .month-popup{
+
+  }
+  .month-btn{
+    background:none!important;
+    color:inherit;
+    border:none; 
+    padding:0!important;
+    font: inherit;
+    border-bottom:1px solid #444; 
+    cursor: pointer;
+  }
+  .month-btn:hover{
+
+    transform: scale(1.2);
+  }
+  .calendar{
+    width: 100%
+  }
+  .calendar-header{
+    display:flex; 
+    justify-content: space-around;
+    align-items: baseline;
+    width: 100%;
+  }
+  .editor-year{
+    width:60px;
+    height: 35px;
+    padding: 0;
+    margin:0;
+  }  
+  .label-year{
+    width:60px;
+    height: 35px;
+    padding: 0;
+    margin:0;
+  }
+  .booked{
+    background-color: #f44336;
   }
