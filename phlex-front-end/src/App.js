@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Switch, Route, Redirect, withRouter } from "react-router-dom";
 import getPgs from "./service/pgFakeDb";
+import Search from "./service/search";
 //Components
 import Navbar from "./components/Navbar";
 import ResultPage from "./components/ResultPage";
@@ -32,6 +33,11 @@ class App extends Component {
       data: { ...prevState.data, photographers }
     }))
   }
+
+  componentDidUpdate() {
+    
+  }
+
   handleChange = e => {
     console.log(e.target.name, e.target.value);
     const { value, id } = e.target;
@@ -48,8 +54,15 @@ class App extends Component {
   };
 
   handleSubmitSearch = () => {
-    const searchString = this.state.data.search.photoType;
-    if (searchString) {
+    const { search, photographers  } = this.state.data;
+    if(search.photoType) {
+      const searchResult = new Search(photographers, search.photoType);
+      let result = searchResult.getSearchResult();
+      if(result.length !== 0) {
+      this.setState(prevState => ({
+        data: { ...prevState.data, ...prevState.data.photographers = result }
+      }))
+    }
       return this.props.history.push('/result');
     }
   };

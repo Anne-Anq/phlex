@@ -1,6 +1,7 @@
 class Search {
 
     constructor(photographersDB, search){
+        this.photographers = photographersDB;
         this.tags= this.createTagsBase(photographersDB);
         this.search= this.splitSearchString(search);
     }
@@ -48,10 +49,10 @@ class Search {
         return this.unique(match);
     }
 
-    getSearchResult(photographers) {
+    getSearchResult() {
         const userSearch = this.search;
         const matchedPGs = this.matchTagIds(userSearch)
-        const searchResult = photographers.filter(photographer => {
+        const searchResult = this.photographers.filter(photographer => {
             return matchedPGs.includes(photographer.id) && photographer
         });
         return searchResult;
