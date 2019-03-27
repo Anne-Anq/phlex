@@ -10,17 +10,19 @@
   margin-bottom: 1vh;
 }
 .preview{
-  flex:35vh 1 1 ;
+  /* flex:35vh 1 1 ; */
   display: flex;
   flex-direction: column;  
   margin: 0 1vh 0 1vh;
 }
 .preview-data{
   display:flex;
+  flex-wrap:wrap;
 }
-.preview > button.more{
-  color: red;
-  padding-right: 20px;
+@media(max-width: 526px) {
+  .preview-data {
+      flex-direction:column;
+  }
 }
 
 .collapsed-data{
@@ -33,7 +35,7 @@
 }
 .insta{
   background-color: #f8f9fa;  ;
-  flex: calc(22.5vh-5px) 1 1;
+
   margin: 0px 1vh 1vh 1vh;
   /* padding: 8px 8px 0 8px; */
   border-radius:5px;    
