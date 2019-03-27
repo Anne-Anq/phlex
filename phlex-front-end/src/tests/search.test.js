@@ -9,12 +9,13 @@ const photographers = [
     { id: 1,
         fName: 'Bill',
         lName: 'Raven',
-        tags: ['Wedding photos', 'love', 'dog pixs']
+        tags: ['Wedding photos', 'love', 'dog']
     }
 ];
-const searchObj = new Search(photographers);
-const tags = [{id:0, tags: ['food', 'pixs', 'restaurant']},{id:1, tags: ['wedding', 'photos', 'love', 'dog', 'pixs']}]
 const searchText="   Food#%pixs?/vibrant09colours^     ";
+const searchObj = new Search(photographers, searchText);
+const tags = [{id:0, tags: ['food', 'pixs', 'restaurant']},{id:1, tags: ['wedding', 'photos', 'love', 'dog']}]
+
 let formattedText= '',
     searchWords,
     tagsIds;
@@ -40,6 +41,6 @@ describe('Search class',()=>{
         expect(searchObj.matchTagIds(["photos"])).toEqual(tagsIds)
     });
     it('should be able to return an array of tag objects that match words in the search text', ()=>{
-        expect(searchObj.getSearchResult(formattedText)).toEqual(photographers[0]);
+        expect(searchObj.getSearchResult(photographers)).toEqual([photographers[0]]);
     });
 });

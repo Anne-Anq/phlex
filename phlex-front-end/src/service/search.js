@@ -1,22 +1,8 @@
-// this service should be called for the search on the landing page.
-
-/** First get an index (object) of all the tags and their corresponding photographers id 
- * this should run everytime the component mounts/updates so as to get a recent index of tags
- */
-
-/** Write a function to loop through the tags object above 
- * and match the words from the search bar with the tags 
- * returning the respective ids if the photographers with matching tags
- * */
-
-/** Write a function to filter the photographers JSON returning only those photographers with matching ids */
-
-/**Pass the returning photographers list to the resultpage */
-
 class Search {
 
-    constructor(photographersDB){
+    constructor(photographersDB, search){
         this.tags= this.createTagsBase(photographersDB);
+        this.search= this.splitSearchString(search);
     }
 
     formatSearchText(text) {
@@ -59,14 +45,16 @@ class Search {
                 tag.tags.includes(word) && match.push(tag.id)
             }
         });
-    return this.unique(match);
+        return this.unique(match);
     }
 
-    getSearchResult(searchText) {
-        console.log(this.splitSearchString(searchText), "<--final result");
-
-
-
+    getSearchResult(photographers) {
+        const userSearch = this.search;
+        const matchedPGs = this.matchTagIds(userSearch)
+        const searchResult = photographers.filter(photographer => {
+            return matchedPGs.includes(photographer.id) && photographer
+        });
+        return searchResult;
     }
 
 }
