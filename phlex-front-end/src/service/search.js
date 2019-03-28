@@ -48,10 +48,9 @@ class Search {
                 tag.tags.includes(word) && match.push(tag.id)
             }
         });
-        
         return this.unique(match);
         }
-        return this.photographers.map(pg=> pg.id);
+        return this.photographers.map(pg => pg.id);
     }
 
     getSearchResult() {
