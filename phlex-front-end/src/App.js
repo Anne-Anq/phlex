@@ -23,14 +23,16 @@ class App extends Component {
         basePrice: "300",
         addPrice: "50",
       },
-      photographers: []
+      photographers: [],
+      filteredPhotographers: [],
     },
     error: {},
   };
   componentDidMount() {
     const photographers = getPgs();
+    const filteredPhotographers = getPgs();
     this.setState(prevState => ({
-      data: { ...prevState.data, photographers }
+      data: { ...prevState.data, photographers, filteredPhotographers }
     }))
   }
 
@@ -51,6 +53,28 @@ class App extends Component {
       ({
         data: { ...prevState.data, search }
       }));
+
+      const { photographers  } = this.state.data;
+
+ 
+      const searchResult = new Search(photographers, search.photoType);
+      let result = searchResult.getSearchResult();
+      if(result.length !== 0) {
+      this.setState(prevState => ({
+        data: { ...prevState.data,  ...prevState.data.filteredPhotographers = result }
+      }))
+    
+
+
+
+
+    //return this.props.history.push('/result');
+    
+    // this.setState(prevState =>
+    //   ({
+    //     data: { ...prevState.data, search }
+    //   }));
+  }
   };
 
   handleSubmitSearch = () => {
