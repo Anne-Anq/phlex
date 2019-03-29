@@ -6,12 +6,12 @@ import "../stylesheets/ResultPage.css";
 
 class ResultPage extends Component {
   render() {
-    const { photographers } = this.props.data;
+    const { filteredPhotographers } = this.props.data;
     return (
       <div className="resultPage">
         <SearchForm onChange={this.props.onChange} data={this.props.data} />
         <Scroll>
-          <PgCards photographers={photographers} />
+          <PgCards photographers={filteredPhotographers} />
         </Scroll>
       </div>
     );
