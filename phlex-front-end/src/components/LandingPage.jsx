@@ -19,10 +19,10 @@ class LandingPage extends Component {
                         className="form-control form-control-danger"
                         onKeyDown={e => e.keyCode === 13 && this.props.onClick(e)}
                         onChange={e => this.props.onChange(e)}
-                        placeholder="Search for a photographer"
+                        placeholder="Ex: Food pictures, 360deg, outdoor..."
                     />
                 </div>
-                <button className="btn btn-danger" onClick={e => this.props.onClick(e)}>Find Photographers near you</button>
+                <button className="btn btn-danger" onClick={e => this.props.onClick(e)}>Search</button>
             </div>
         );
     }

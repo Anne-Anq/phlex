@@ -269,7 +269,7 @@ const photographers = [
         lName: 'Martin',
         avatarURL: "/pictures/chris.jpg",
         rating: 4.8,
-        bio: "Chris capturs your most real mood and emotion!",
+        bio: "Chris captures your most real mood and emotion!",
         tags: ["wedding","portrait"],
         etd: 11,
         rate10: 150,
@@ -313,7 +313,7 @@ const photographers = [
                 },
                 created_at: '09/03/2019',
                 rating: 5,
-                review: "So gald to find her. "
+                review: "So glad to find her. "
             },
             {
                 id: 4,

@@ -1,10 +1,17 @@
 ul {
   width: 100%;
+  font-size: 2rem; 
 }
 #navbar{
   height: 10vh;
+  font-size: 2rem;
 }
-
+#logo{
+  font-size: 2rem!important;
+}
+#logo:focus{
+  outline: none;
+}
 .linkBtn{
 background: none !important;
     color:inherit;
@@ -13,4 +20,7 @@ background: none !important;
     font: inherit;
     cursor: pointer;
     margin-right:10px; 
+}
+.linkBtn:focus{
+  outline: none;
 }

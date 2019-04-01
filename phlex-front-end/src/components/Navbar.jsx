@@ -41,7 +41,7 @@ class Navbar extends Component {
 						: 'navbar navbar-expand-lg navbar-light bg-light'
 				}
 			>
-				<NavLink className="navbar-brand" to="/">
+				<NavLink id="logo" className="navbar-brand p-5 " to="/">
 					Phlex
 				</NavLink>
 				<button
@@ -59,11 +59,11 @@ class Navbar extends Component {
 				<div className="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul className="navbar-nav mr-auto d-flex justify-content-between">
 						<li className="d-lg-flex flex-row">
-							{!this.props.isLandingPage && (
-								<NavLink to="/result" className="nav-item nav-link">
+							
+								<NavLink to="/result" className="nav-item nav-link p-5 linkBtn">
 									Find a photographer <span className="sr-only">(current)</span>
 								</NavLink>
-							)}
+							
 							{/* Register Pages */}
 							<button id="photoReg" onClick={this.handleClickOpen} className="nav-item nav-link linkBtn">
 								Become a photographer
@@ -75,7 +75,7 @@ class Navbar extends Component {
 								Register
 								<span className="sr-only">(current)</span>
 							</button>
-							<button id="signIn" onClick={this.handleClickOpen} className="nav-item nav-link linkBtn">
+							<button id="signIn" onClick={this.handleClickOpen} className="p-5 nav-item nav-link linkBtn">
 								Sign In
 								<span className="sr-only">(current)</span>
 							</button>

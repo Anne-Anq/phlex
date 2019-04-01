@@ -12,6 +12,7 @@
     background-repeat: no-repeat;
     background-position: center;
     height: 100vh;
+    font-family: 'Josefin Sans', cursive;
 }
 
 #phlex-header{
@@ -30,6 +31,7 @@
 }
 .search {
     height:90px;
+
     font-size:50pt;
     background-color: rgba(0,0,0,0);
     border: solid 0;
@@ -68,19 +70,28 @@
     color: #aaa;
     font-size:25pt;
     padding-top: 15pt; 
-}
+}                                                                                   
 
 .btn-danger {
     color: #fff;
-    background-color: #dc3545;
-    border-color: #dc3545;
-    height: 3em;
-    width: 55%;
+    background-color: #C42F31 !important;
+    /* border-color: #; */
+    /* height: 3em; */
+    width: 100%;
+    max-width: 716px;
+    font-size: 16pt !important;
+    padding: 5px 0;
 }
+.btn-danger:hover {
+    color: #fff;
+    background-color: rgb(223, 77, 80) !important;
+}
+
 
 .has-search .form-control {
     padding-left: 3.375rem;
-    width: 50rem;
+    width: 716px;
+    max-width: 716px;
     height: 5rem;
     background-color: rgba(0,0,0,0);
     font-size: 20pt;

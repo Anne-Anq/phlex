@@ -39,7 +39,7 @@ export default class FormDialog extends React.Component {
     }
     return (
       <div className="form-group text-left p-3">
-        <label htmlFor={path}>{`${label}: ${val}`}</label>
+        <label htmlFor={path}>{`${label}: $${val}`}</label>
         <input
           id={path}
           className="form-control"
@@ -64,6 +64,7 @@ export default class FormDialog extends React.Component {
       <div className='signup'>
         <Dialog
           open={this.props.isOpen}
+          onClose={this.props.handleClose}
           aria-labelledby="form-dialog-title"
         >
           <DialogTitle id="form-dialog-title">Register</DialogTitle>
@@ -120,7 +121,7 @@ export default class FormDialog extends React.Component {
          {/* render sliders */}
          {this.renderRange(
           "addPrice",
-          "$ / each additional 5 pictures ",
+          "Cost for the first 10 photos ",
           0,
           500,
           10,
@@ -128,7 +129,7 @@ export default class FormDialog extends React.Component {
         )}
         {this.renderRange(
           "basePrice",
-          "$ / each additional 5 pictures ",
+          "Cost for each additional 5 photos ",
           0,
           500,
           10,

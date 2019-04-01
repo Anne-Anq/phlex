@@ -14,7 +14,7 @@ export default class FormDialog extends React.Component {
       <div className='signin'>
         <Dialog
           open={this.props.isOpen}
-        //   onClose={this.handleClose}
+          onClose={this.props.handleClose}
           aria-labelledby="form-dialog-title"
         >
           <DialogTitle id="form-dialog-title">Sign In</DialogTitle>
