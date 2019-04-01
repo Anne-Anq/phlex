@@ -16,6 +16,8 @@
     }
   }
   .pg-avatar >img {
-      max-width: 500px;
+      max-width: 230px;
+      height: auto;
       border-radius:5px;  
+      object-fit: contain;
   }
