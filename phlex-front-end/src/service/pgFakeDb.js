@@ -195,6 +195,141 @@ const photographers = [
             }
         ]
 
+    },
+    {
+        id: 7,
+        fName: 'Daya',
+        lName: 'Meade',
+        avatarURL: "/pictures/daya.jpg",
+        rating: 4.5,
+        bio: "Daya Will Take Beautiful & Natural Photos You Can Treasure Forever.",
+        tags: ["nature"],
+        etd: 10,
+        rate10: 150,
+        rate5: 25,
+        notAvailable: [
+            {
+                id: 7,
+                from: "2019-04-10",
+                to: "2019-04-21",
+            },
+        ],
+        instaURL: "https://www.instagram.com/",
+        portfolio: [
+            { id: 36, picURL: "/pictures/LS1.jpg", alt: "LS1" },
+            { id: 37, picURL: "/pictures/LS2.jpg", alt: "LS2" },
+            { id: 38, picURL: "/pictures/LS3.jpg", alt: "LS3" },
+            { id: 39, picURL: "/pictures/LS4.jpg", alt: "LS4" },
+            { id: 40, picURL: "/pictures/LS5.jpg", alt: "LS5" },
+            { id: 41, picURL: "/pictures/LS6.jpg", alt: "LS6" },
+        ],
+        reviews: [
+            {
+                id: 5,
+                user: {
+                    id: 4,
+                    avatarURL: "/pictures/grace.jpg",
+                    fName: 'Grace',
+                    lName: 'Goodrich',
+                },
+                created_at: '09/03/2019',
+                rating: 5,
+                review: "So gald to find her. "
+            },
+            {
+                id: 4,
+                user: {
+                    id: 3,
+                    avatarURL: "/pictures/maria.jpg",
+                    fName: 'Maria',
+                    lName: 'DaSilva',
+                },
+                created_at: '07/03/2019',
+                rating: 4.8,
+                review: "I love her photos, that's what one calls art. "
+            },           
+            {
+                id: 6,
+                user: {
+                    id: 5,
+                    avatarURL: "/pictures/jason.jpg",
+                    fName: 'Jason',
+                    lName: 'Blake',
+                },
+                created_at: '10/03/2019',
+                rating: 4.5,
+                review: "Excellent work! "
+            }
+        ]
+
+    },
+    {
+        id: 8,
+        fName: 'Chris',
+        lName: 'Martin',
+        avatarURL: "/pictures/chris.jpg",
+        rating: 4.8,
+        bio: "Chris captures your most real mood and emotion!",
+        tags: ["wedding","portrait"],
+        etd: 11,
+        rate10: 150,
+        rate5: 25,
+        notAvailable: [
+            {
+                id: 8,
+                from: "2019-05-10",
+                to: "2019-05-21",
+            },
+        ],
+        instaURL: "https://www.instagram.com/",
+        portfolio: [
+            { id: 36, picURL: "/pictures/HP1.jpg", alt: "HP1" },
+            { id: 37, picURL: "/pictures/HP2.jpg", alt: "HP2" },
+            { id: 38, picURL: "/pictures/HP3.jpg", alt: "HP3" },
+            { id: 39, picURL: "/pictures/HP4.jpg", alt: "HP4" },
+            { id: 40, picURL: "/pictures/HP5.jpg", alt: "HP5" },
+            { id: 41, picURL: "/pictures/HP6.jpg", alt: "HP6" },
+        ],
+        reviews: [
+            {
+                id: 6,
+                user: {
+                    id: 5,
+                    avatarURL: "/pictures/jason.jpg",
+                    fName: 'Jason',
+                    lName: 'Blake',
+                },
+                created_at: '10/03/2019',
+                rating: 4.5,
+                review: "Excellent work! "
+            },
+            {
+                id: 5,
+                user: {
+                    id: 4,
+                    avatarURL: "/pictures/grace.jpg",
+                    fName: 'Grace',
+                    lName: 'Goodrich',
+                },
+                created_at: '09/03/2019',
+                rating: 5,
+                review: "So glad to find her. "
+            },
+            {
+                id: 4,
+                user: {
+                    id: 3,
+                    avatarURL: "/pictures/maria.jpg",
+                    fName: 'Maria',
+                    lName: 'DaSilva',
+                },
+                created_at: '07/03/2019',
+                rating: 4.8,
+                review: "I love her photos, that's what one calls art. "
+            }           
+           
+        ]
+
     }
 ]
 const getPgs = () => photographers;

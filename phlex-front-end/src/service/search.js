@@ -39,7 +39,9 @@ class Search {
       }
 
     matchTagIds(searchWords) {
-        let match = [];
+        
+        if (searchWords[0] !== ""){
+            let match = [];
         const tags = this.tags
         tags.forEach(tag => {
             for(let word of searchWords) {
@@ -47,6 +49,8 @@ class Search {
             }
         });
         return this.unique(match);
+        }
+        return this.photographers.map(pg => pg.id);
     }
 
     getSearchResult() {
