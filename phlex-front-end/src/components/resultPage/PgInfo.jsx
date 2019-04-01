@@ -20,12 +20,12 @@ class PgInfo extends Component {
                 <div className="etd">Usually delivers in {etd} days</div>
 
                 <div className="price">
-                    <div className="price-legend">$/10 first pix : </div>
-                    <div className="badge-div"><span className="badge badge-secondary">140</span></div>
+                    <div className="price-legend">First 10 photos: </div>
+                    <div className="badge-div"><span className="badge badge-secondary">$140</span></div>
                 </div>
                 <div className="price">
-                    <div className="price-legend">$/5 additional : </div>
-                    <div className="badge-div"><span className="badge badge-secondary">30</span></div>
+                    <div className="price-legend">Next 5 Photos: </div>
+                    <div className="badge-div"><span className="badge badge-secondary">$30</span></div>
                 </div>
             </div>
         );

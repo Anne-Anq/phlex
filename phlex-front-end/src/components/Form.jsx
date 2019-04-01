@@ -44,7 +44,7 @@ class Form extends Component {
     }
     return (
       <div className="form-group text-left p-3">
-        <label htmlFor={path}>{`${label}: ${val}`}</label>
+        <label htmlFor={path}>{`${label}: $${val}`}</label>
         <input
           id={path}
           className="form-control"

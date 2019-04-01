@@ -20,7 +20,7 @@ class SearchForm extends Form {
         {this.renderDateField("dateFrom", "Earliest availability")}
         {this.renderRange(
           "basePrice",
-          "$ / 10 pictures package ",
+          "Max price for 10 photo package ",
           0,
           1000,
           10,
@@ -28,7 +28,7 @@ class SearchForm extends Form {
         )}
         {this.renderRange(
           "addPrice",
-          "$ / each additional 5 pictures ",
+          "Max price for 5 extra photoss ",
           0,
           500,
           10,
