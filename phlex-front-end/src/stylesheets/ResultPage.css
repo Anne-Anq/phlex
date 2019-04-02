@@ -8,6 +8,8 @@
   display: flex;
   flex-wrap: wrap;
   font-size: 1.4rem;
+  position:relative;
+  z-index:1;
 }
 .searchForm {
   background-color: #9e9e9e;

@@ -6,7 +6,7 @@ ul {
   height: 10vh;
   font-size: 2rem;
   position:relative;
-  z-index:-1;
+  z-index:0;
 }
 #logo{
   font-size: 2rem!important;
