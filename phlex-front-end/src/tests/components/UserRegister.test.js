@@ -2,9 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from "react-router-dom";
 import Signup from '../../components/UserRegister/SignupForm';
-import ProvinceSelect from "../UserRegister/ProvinceSelect";
-import { ControlledOpenSelect } from '@material-ui/core/Select';
-
+import ProvinceSelect from "../../components/UserRegister/ProvinceSelect";
 it('Signup form renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(
@@ -18,9 +16,8 @@ it('Signup form renders without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(
       <BrowserRouter>
-        <Province />
+        <ProvinceSelect />
       </BrowserRouter>, div);
     ReactDOM.unmountComponentAtNode(div);
   });
   
- 
