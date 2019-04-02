@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Select from "../common/buttons/Select";
 import MoreButton from "../common/buttons/MoreButton";
-import { getToday, getDateContext, weekDays, getWeeksInMonth, setDate, navigate, monthsArr, yearsArr } from "../../logics/calendar";
+import { getToday, getDateContext, weekDays, getWeeksInMonth, setDate, navigate, monthsArr, yearsArr, getDay } from "../../logics/calendar";
 import "../../stylesheets/Calendar.css";
 
 class Calendar extends Component {
@@ -32,7 +32,7 @@ class Calendar extends Component {
     selectDay = ({ content: dayNum, className }) => {
         if (!className.includes("booked")) {
             const { dateContext: { month, year }, selectedDates: datesArr } = this.state;
-            const selectedDate = getDateContext(`${dayNum} ${month} ${year}`);
+            const selectedDate = getDateContext(getDay(year, month, dayNum));
             let selectedDates = datesArr.filter(sDate => sDate.date.date() !== selectedDate.date.date());
             if (selectedDates.length === datesArr.length) selectedDates.push(selectedDate);
             this.setState({ selectedDates });

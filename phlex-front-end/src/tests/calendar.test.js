@@ -1,4 +1,4 @@
-import { getToday, getDateContext, weekDays, monthsArr, yearsArr, getWeeksInMonth, setDate, navigate } from "../logics/calendar";
+import { getToday, getDateContext, weekDays, monthsArr, yearsArr, getWeeksInMonth, setDate, navigate, getDay } from "../logics/calendar";
 import moment from "moment";
 
 describe('get dates data', () => {
@@ -27,6 +27,7 @@ describe('return an array of arrays of the days of week starting on Sunday for a
     const today = getDateContext(moment("20190404"));
     const myDate = moment("20190401");
     const dateContext = getDateContext(myDate);
+    const selectedDates = [];
     const notAvailable = [
         {
             id: 1,
@@ -40,23 +41,23 @@ describe('return an array of arrays of the days of week starting on Sunday for a
         },
     ]
     it('should return an object with the empty slot properties for the first Sunday displayed for April 2019 as the month starts on Monday', () => {
-        expect(getWeeksInMonth(today, dateContext, notAvailable)[0][0]).toEqual({ "className": "emptySlot", "content": "", "key": "empty-0" });
+        expect(getWeeksInMonth(today, dateContext, notAvailable, selectedDates)[0][0]).toEqual({ "className": "emptySlot", "content": "", "key": "empty-0" });
     });
     it('should return an object with the day properties for the first Monday displayed for April 2019 as the month starts on Monday', () => {
-        expect(getWeeksInMonth(today, dateContext, notAvailable)[0][1]).toEqual({ "className": "day", "content": 1, "key": "full-1" });
+        expect(getWeeksInMonth(today, dateContext, notAvailable, selectedDates)[0][1]).toEqual({ "className": "day", "content": 1, "key": "full-1" });
     });
     it('should return an object with the current-day className for the date of "today"', () => {
-        expect(getWeeksInMonth(today, dateContext, notAvailable)[0][4]).toEqual({ "className": "day current-day", "content": 4, "key": "full-4" });
+        expect(getWeeksInMonth(today, dateContext, notAvailable, selectedDates)[0][4]).toEqual({ "className": "day current-day", "content": 4, "key": "full-4" });
     });
     it('should return an object with the booked className for the not-available dates, including from and to', () => {
-        expect(getWeeksInMonth(today, dateContext, notAvailable)[2][1]).toEqual({ "className": "day booked", "content": 15, "key": "full-15" });
-        expect(getWeeksInMonth(today, dateContext, notAvailable)[2][5]).toEqual({ "className": "day booked", "content": 19, "key": "full-19" });
-        expect(getWeeksInMonth(today, dateContext, notAvailable)[3][0]).toEqual({ "className": "day booked", "content": 21, "key": "full-21" });
-        expect(getWeeksInMonth(today, dateContext, notAvailable)[3][2]).toEqual({ "className": "day booked", "content": 23, "key": "full-23" });
+        expect(getWeeksInMonth(today, dateContext, notAvailable, selectedDates)[2][1]).toEqual({ "className": "day booked", "content": 15, "key": "full-15" });
+        expect(getWeeksInMonth(today, dateContext, notAvailable, selectedDates)[2][5]).toEqual({ "className": "day booked", "content": 19, "key": "full-19" });
+        expect(getWeeksInMonth(today, dateContext, notAvailable, selectedDates)[3][0]).toEqual({ "className": "day booked", "content": 21, "key": "full-21" });
+        expect(getWeeksInMonth(today, dateContext, notAvailable, selectedDates)[3][2]).toEqual({ "className": "day booked", "content": 23, "key": "full-23" });
     });
     it('should return an array of 5 arrays of the days of week starting on Sunday for the month of April', () => {
-        expect(getWeeksInMonth(today, dateContext, notAvailable).length).toBe(5);
-        expect(getWeeksInMonth(today, dateContext, notAvailable)[0].length).toBe(7);
+        expect(getWeeksInMonth(today, dateContext, notAvailable, selectedDates).length).toBe(5);
+        expect(getWeeksInMonth(today, dateContext, notAvailable, selectedDates)[0].length).toBe(7);
     });
 });
 describe('get the date context of the selected month and year', () => {
@@ -88,4 +89,11 @@ describe('navigate to previous and next month and year', () => {
     });
 
 });
+
+describe('return the day in a ISO format', () => {
+    it('should return the day in a ISO format', () => {
+        expect(getDay(1988, "december", "18")).toEqual(moment("1988-12-18"));
+
+    });
+})
 
