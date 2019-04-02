@@ -5,6 +5,8 @@ ul {
 #navbar{
   height: 10vh;
   font-size: 2rem;
+  position:relative;
+  z-index:-1;
 }
 #logo{
   font-size: 2rem!important;
