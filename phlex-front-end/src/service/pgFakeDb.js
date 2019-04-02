@@ -338,7 +338,7 @@ const photographers = [
                 },
                 created_at: '09/03/2019',
                 rating: 5,
-                review: "So glad to find her. "
+                review: "So glad to find him. "
             },
             {
                 id: 4,
@@ -350,7 +350,7 @@ const photographers = [
                 },
                 created_at: '07/03/2019',
                 rating: 4.8,
-                review: "I love her photos, that's what one calls art. "
+                review: "I love his photos, that's what one calls art. "
             }
 
         ]
