@@ -21,8 +21,13 @@ class Calendar extends Component {
     handleClick = (e) => {
         const { fName } = this.props.photographer;
         const { selectedDates } = this.state;
-        let dateStr = selectedDates.map(d => d.date.format("MMM Do YYYY")).join(", ");
-        alert(`You are about to send a request to ${fName} for the following date${selectedDates.length > 1 ? "s" : ""} : ${dateStr}`)
+        if (selectedDates.length > 0) {
+            let dateStr = selectedDates.map(d => d.date.format("MMM Do YYYY")).join(", ");
+            alert(`You are about to send a request to ${fName} for the following date${selectedDates.length > 1 ? "s" : ""} : ${dateStr}.`)
+        } else {
+            alert(`You need to select the dates you want to book ${fName} for.`)
+        }
+
     }
     selectDay = ({ content: dayNum, className }) => {
         if (!className.includes("booked")) {
