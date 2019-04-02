@@ -89,26 +89,3 @@ describe('navigate to previous and next month and year', () => {
 
 });
 
-// const getNextMonth = (dateContext) => {
-//     const { date } = Object.assign({}, dateContext);
-//     return getDateContext(moment(date).add(1, "month"));
-// }
-// const getPrevMonth = (dateContext) => {
-//     const { date } = Object.assign({}, dateContext);
-//     return getDateContext(moment(date).subtract(1, "month"));
-// }
-// const getNextYear = (dateContext) => {
-//     const { date } = Object.assign({}, dateContext);
-//     return getDateContext(moment(date).add(1, "year"));
-// }
-// const getPrevYear = (dateContext) => {
-//     const { date } = Object.assign({}, dateContext);
-//     return getDateContext(moment(date).subtract(1, "year"));
-// }
-
-// const navigate = (action, dateContext) => {
-//     if (action === "nextMonth") return getNextMonth(dateContext);
-//     if (action === "prevMonth") return getPrevMonth(dateContext);
-//     if (action === "nextYear") return getNextYear(dateContext);
-//     if (action === "prevYear") return getPrevYear(dateContext);
-// };

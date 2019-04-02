@@ -14,9 +14,9 @@ const styles = theme => ({
     },
 });
 
-function ButtonSizes({ classes, label, onClick, variant }) {
+function ButtonSizes({ classes, label, onClick, variant, color }) {
     return (
-        <Button variant={variant} size="small" className={classes.margin} onClick={onClick}>
+        <Button variant={variant} size="small" color={color} className={classes.margin} onClick={onClick}>
             {label}
         </Button>
     );

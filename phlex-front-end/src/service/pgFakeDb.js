@@ -21,6 +21,16 @@ const photographers = [
                 from: "2019-03-28",
                 to: "2019-03-30",
             },
+            {
+                id: 2,
+                from: "2019-04-04",
+                to: "2019-04-07",
+            },
+            {
+                id: 3,
+                from: "2019-04-10",
+                to: "2019-04-10",
+            },
         ],
         instaURL: "https://www.instagram.com/",
         portfolio: [
@@ -60,22 +70,22 @@ const photographers = [
         rate5: 45,
         notAvailable: [
             {
-                id: 2,
+                id: 12,
                 from: "2019-03-25",
                 to: "2019-03-25",
             },
             {
-                id: 3,
+                id: 13,
                 from: "2019-03-31",
                 to: "2019-04-04",
             },
             {
-                id: 4,
+                id: 14,
                 from: "2019-03-25",
                 to: "2019-04-09",
             },
             {
-                id: 5,
+                id: 15,
                 from: "2019-04-15",
                 to: "2019-04-15",
             },
@@ -142,9 +152,19 @@ const photographers = [
         rate5: 25,
         notAvailable: [
             {
-                id: 6,
+                id: 21,
                 from: "2019-03-10",
                 to: "2019-03-21",
+            },
+            {
+                id: 22,
+                from: "2019-04-01",
+                to: "2019-04-07",
+            },
+            {
+                id: 23,
+                from: "2019-04-24",
+                to: "2019-04-25",
             },
         ],
         instaURL: "https://www.instagram.com/",
@@ -209,7 +229,7 @@ const photographers = [
         rate5: 25,
         notAvailable: [
             {
-                id: 7,
+                id: 31,
                 from: "2019-04-10",
                 to: "2019-04-21",
             },
@@ -247,7 +267,7 @@ const photographers = [
                 created_at: '07/03/2019',
                 rating: 4.8,
                 review: "I love her photos, that's what one calls art. "
-            },           
+            },
             {
                 id: 6,
                 user: {
@@ -270,13 +290,18 @@ const photographers = [
         avatarURL: "/pictures/chris.jpg",
         rating: 4.8,
         bio: "Chris captures your most real mood and emotion!",
-        tags: ["wedding","portrait"],
+        tags: ["wedding", "portrait"],
         etd: 11,
         rate10: 150,
         rate5: 25,
         notAvailable: [
             {
-                id: 8,
+                id: 41,
+                from: "2019-04-14",
+                to: "2019-04-15",
+            },
+            {
+                id: 42,
                 from: "2019-05-10",
                 to: "2019-05-21",
             },
@@ -326,8 +351,8 @@ const photographers = [
                 created_at: '07/03/2019',
                 rating: 4.8,
                 review: "I love her photos, that's what one calls art. "
-            }           
-           
+            }
+
         ]
 
     }
