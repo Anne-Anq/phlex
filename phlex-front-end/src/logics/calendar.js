@@ -14,7 +14,9 @@ const getDateContext = (myDate) => {
 
 const getToday = () => getDateContext(moment());
 
-const getDay = (year, month, day) => moment(`${year}-${moment().month(month).format("MM")}-${moment().day(day).format("DD")}`);
+const getDay = (year, month, day) => moment(`${year}-${moment().month(month).format("MM")}-${moment().day(day).format("DD")}`).startOf('day');
+
+const compareDates = (date1, date2) => date1.isSame(date2, "day") && date1.isSame(date2, "month") && date1.isSame(date2, "year");
 
 const weekDays = moment.weekdaysShort();
 
@@ -33,7 +35,7 @@ const getCurrentMonthDays = (todaysDate, { daysInMonth, month, year }, notAvaila
     let currentMonthDays = [];
     for (let d = 1; d <= daysInMonth; d++) {
         const dDate = getDay(year, month, d);
-        let className = dDate.date() === todaysDate.date() ? "day current-day" : "day"; // fix this
+        let className = compareDates(dDate, todaysDate) ? "day current-day" : "day"; // fix this
         notAvailable.forEach(obj => {
             const dFrom = moment(obj.from);
             const dTo = moment(obj.to);
@@ -42,9 +44,7 @@ const getCurrentMonthDays = (todaysDate, { daysInMonth, month, year }, notAvaila
                 className = `${className} booked`;
             }
         })
-        selectedDates.forEach(sDate => {
-            if (sDate.date.date() === dDate.date()) className = `${className} selected`;
-        })
+        selectedDates.forEach(sDate => className = `${className} ${compareDates(sDate.date, dDate) ? "selected" : ""}`)
         currentMonthDays.push({ key: `full-${d}`, className: className, content: d });
     }
     return currentMonthDays;
