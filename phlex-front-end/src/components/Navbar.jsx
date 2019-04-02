@@ -41,7 +41,7 @@ class Navbar extends Component {
 						: 'navbar navbar-expand-lg navbar-light bg-light'
 				}
 			>
-				<NavLink id="logo" className="navbar-brand p-5 " to="/">
+				<NavLink id="logo" className="navbar-brand px-5 " to="/">
 					Phlex
 				</NavLink>
 				<button
@@ -57,25 +57,26 @@ class Navbar extends Component {
 				</button>
 
 				<div className="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul className="navbar-nav mr-auto d-flex justify-content-between">
+					<ul className={`navbar-nav ${location.pathname === '/' ? "bg-dark" : "bg-light"} mr-auto d-flex justify-content-between`}>
 						<li className="d-lg-flex flex-row">
-							
-								<NavLink to="/result" className="nav-item nav-link p-5 linkBtn">
-									Find a photographer <span className="sr-only">(current)</span>
-								</NavLink>
-							
+
+							<NavLink to="/result" className="nav-item nav-link px-5 px-sm-1 text-sm-left linkBtn">
+								Find a photographer <span className="sr-only">(current)</span>
+							</NavLink>
+
 							{/* Register Pages */}
-							<button id="photoReg" onClick={this.handleClickOpen} className="nav-item nav-link linkBtn">
+							<button id="photoReg" onClick={this.handleClickOpen} className="nav-item nav-link linkBtn px-sm-1">
 								Become a photographer
 								<span className="sr-only">(current)</span>
 							</button>
 						</li>
-						<li className="d-lg-flex flex-row">
-							<button id="userReg" onClick={this.handleClickOpen} className="nav-item nav-link linkBtn">
+						<li className="d-lg-flex flex-row ">
+							{/* flex-sm-column align-items-sm-end */}
+							<button id="userReg" onClick={this.handleClickOpen} className="nav-item nav-link linkBtn px-sm-1">
 								Register
 								<span className="sr-only">(current)</span>
 							</button>
-							<button id="signIn" onClick={this.handleClickOpen} className="p-5 nav-item nav-link linkBtn">
+							<button id="signIn" onClick={this.handleClickOpen} className="px-5 nav-item nav-link linkBtn px-sm-1">
 								Sign In
 								<span className="sr-only">(current)</span>
 							</button>
