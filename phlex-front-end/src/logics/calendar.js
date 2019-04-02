@@ -14,6 +14,8 @@ const getDateContext = (myDate) => {
 
 const getToday = () => getDateContext(moment());
 
+const getDay = (year, month, day) => moment(`${year}-${moment().month(month).format("MM")}-${moment().day(day).format("DD")}`);
+
 const weekDays = moment.weekdaysShort();
 
 const monthsArr = moment.months();
@@ -30,13 +32,13 @@ const getPrevMonthDays = ({ firstDayOfMonth }) => {
 const getCurrentMonthDays = (todaysDate, { daysInMonth, month, year }, notAvailable, selectedDates) => {
     let currentMonthDays = [];
     for (let d = 1; d <= daysInMonth; d++) {
-        const dDate = moment(`${year}${month}${d}`);
-        let className = dDate.format("MMM Do YY") === moment(todaysDate).format("MMM Do YY") ? "day current-day" : "day"; // fix this
+        const dDate = getDay(year, month, d);
+        let className = dDate.date() === todaysDate.date() ? "day current-day" : "day"; // fix this
         notAvailable.forEach(obj => {
             const dFrom = moment(obj.from);
             const dTo = moment(obj.to);
 
-            if (!(dDate.isBefore(dFrom) || dDate.isAfter(dTo)) || dDate === dTo) {
+            if (!(dDate.isBefore(dFrom) || dDate.isAfter(dTo))) {
                 className = `${className} booked`;
             }
         })
@@ -114,5 +116,5 @@ const navigate = (action, dateContext) => {
 
 
 export {
-    getToday, getDateContext, weekDays, getWeeksInMonth, setDate, navigate, monthsArr, yearsArr,
+    getToday, getDateContext, weekDays, getWeeksInMonth, setDate, navigate, monthsArr, yearsArr, getDay
 };

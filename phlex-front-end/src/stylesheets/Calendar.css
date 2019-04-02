@@ -46,7 +46,7 @@
   button.day{
     cursor: pointer;
         /*                              <-- Adjust this to make it look good on your computer  */
-    width:22px;
+    width:30px;
     margin:auto;
     color:inherit;
     background:inherit;
@@ -56,6 +56,7 @@
 
   .booked.day{
     color: #9e9e9e;
+    text-decoration: line-through;
     cursor: default;
   }
   .selected.day{
