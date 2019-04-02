@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Select from "../common/buttons/Select";
+import MoreButton from "../common/buttons/MoreButton";
 import { getToday, getDateContext, weekDays, getWeeksInMonth, setDate, navigate, monthsArr, yearsArr } from "../../logics/calendar";
 import "../../stylesheets/Calendar.css";
 
@@ -73,6 +74,12 @@ class Calendar extends Component {
                         {this.renderDays(notAvailable)}
                     </tbody>
                 </table>
+                <div className="more-div">
+                    {
+                        true &&
+                        <MoreButton variant="outlined" onClick={this.handleClick} label="Book" />
+                    }
+                </div>
             </div>
         );
     }

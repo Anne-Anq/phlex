@@ -5,10 +5,17 @@
 
 .calendar-container{
     background-color: #f8f9fa;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
     flex:1;
     min-width: 230px;
-    padding: 1vh;
+    
     border-radius:5px;
+    /*                              <-- Adjust this to make it look good on your computer  */
+    font-size: 0.6em;
+    height: 35vh;
+
   }
   @media(max-width: 1228px) {
     .calendar-container{
@@ -24,39 +31,17 @@
   .current-day{
     font-weight: 800; 
   }
-  /* .month-btn{
-    background:none!important;
-    color:inherit;
-    border:none; 
-    padding:0!important;
-    font: inherit;
-    border-bottom:1px solid #444; 
-    cursor: pointer;
-  }
-  .month-btn:hover{
-    transform: scale(1.2);
-  } */
   .calendar{
-    width: 100%
+    width: 100%;
+    padding:  0 1vh;
   }
   .calendar-header{
     display:flex; 
+    padding: 1vh;
     justify-content: space-around;
     align-items: baseline;
     width: 100%;
   }
-  /* .editor-year{
-    width:60px;
-    height: 35px;
-    padding: 0;
-    margin:0;
-  }  
-  .label-year{
-    width:60px;
-    height: 35px;
-    padding: 0;
-    margin:0;
-  } */
   .booked{
     background-color: #f44336;
   }
