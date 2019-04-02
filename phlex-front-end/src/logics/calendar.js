@@ -3,7 +3,7 @@ import _ from "lodash";
 
 const getDateContext = (myDate) => {
     return {
-        date: moment(myDate),
+        date: moment(myDate).format("YYYY-MM-DD"),
         day: moment(myDate).format("D"),
         year: moment(myDate).format("Y"),
         month: moment(myDate).format("MMMM"),
@@ -82,7 +82,7 @@ const setYear = (year, dateContext) => {
     return getDateContext(moment(date).set("year", year));
 }
 const setMonth = (month, dateContext) => {
-    const { date } = Object.assign({}, dateContext);
+    let { date } = Object.assign({}, dateContext);
     return getDateContext(moment(date).set("month", month));
 }
 const setDate = (param, value, dateContext) => {
