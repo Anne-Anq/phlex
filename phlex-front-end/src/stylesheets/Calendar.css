@@ -10,12 +10,10 @@
     justify-content: space-between;
     flex:1;
     min-width: 230px;
-    
+    height: 35vh;
     border-radius:5px;
     /*                              <-- Adjust this to make it look good on your computer  */
     font-size: 0.6em;
-    height: 35vh;
-
   }
   @media(max-width: 1228px) {
     .calendar-container{
@@ -28,8 +26,11 @@
       margin :1vh 0 0 0 ;
     }
   }
+  td{
+    padding:0;
+  }
   .current-day{
-    font-weight: 800; 
+    font-weight: 900; 
   }
   .calendar{
     width: 100%;
@@ -42,6 +43,25 @@
     align-items: baseline;
     width: 100%;
   }
-  .booked{
-    background-color: #f44336;
+  button.day{
+    cursor: pointer;
+        /*                              <-- Adjust this to make it look good on your computer  */
+    width:22px;
+    margin:auto;
+    color:inherit;
+    background:inherit;
+    padding:0;
+    border:none;
+  }
+
+  .booked.day{
+    color: #9e9e9e;
+    text-decoration: line-through;
+    cursor: default;
+  }
+  .selected.day{
+    color: #f8f9fa;
+    background-color:  #9e9e9e;
+    border-radius: 0.25rem;
+    font-weight: 500;
   }

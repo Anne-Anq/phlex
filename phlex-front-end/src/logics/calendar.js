@@ -3,11 +3,11 @@ import _ from "lodash";
 
 const getDateContext = (myDate) => {
     return {
-        date: myDate,
-        day: myDate.format("D"),
-        year: myDate.format("Y"),
-        month: myDate.format("MMMM"),
-        daysInMonth: myDate.daysInMonth(),
+        date: moment(myDate),
+        day: moment(myDate).format("D"),
+        year: moment(myDate).format("Y"),
+        month: moment(myDate).format("MMMM"),
+        daysInMonth: moment(myDate).daysInMonth(),
         firstDayOfMonth: moment(myDate).startOf('month').format('d'),
     }
 }
@@ -23,11 +23,11 @@ const yearsArr = _.range(moment().format("Y"), Number(moment().format("Y")) + 10
 const getPrevMonthDays = ({ firstDayOfMonth }) => {
     let prevMonthDays = [];
     for (let i = 0; i < firstDayOfMonth; i++) {
-        prevMonthDays.push({ key: `empty-${i}`, className: "emptySlot", content: "" })
+        prevMonthDays.push({ key: `empty-${i}`, className: "day emptySlot", content: "" })
     }
     return prevMonthDays
 }
-const getCurrentMonthDays = (todaysDate, { daysInMonth, month, year }, notAvailable) => {
+const getCurrentMonthDays = (todaysDate, { daysInMonth, month, year }, notAvailable, selectedDates) => {
     let currentMonthDays = [];
     for (let d = 1; d <= daysInMonth; d++) {
         const dDate = moment(`${year}${month}${d}`);
@@ -40,18 +40,21 @@ const getCurrentMonthDays = (todaysDate, { daysInMonth, month, year }, notAvaila
                 className = `${className} booked`;
             }
         })
+        selectedDates.forEach(sDate => {
+            if (sDate.date.date() === dDate.date()) className = `${className} selected`;
+        })
         currentMonthDays.push({ key: `full-${d}`, className: className, content: d });
     }
     return currentMonthDays;
 }
 
-const getDaysInMonthArr = (today, dateContext, notAvailable) => {
-    let daysInMonthArr = [...getPrevMonthDays(dateContext), ...getCurrentMonthDays(today.date, dateContext, notAvailable)];
+const getDaysInMonthArr = (today, dateContext, notAvailable, selectedDates) => {
+    let daysInMonthArr = [...getPrevMonthDays(dateContext), ...getCurrentMonthDays(today.date, dateContext, notAvailable, selectedDates)];
     return daysInMonthArr;
 }
 
-const getWeeksInMonth = (today, dateContext, notAvailable) => {
-    const daysInMonthArr = getDaysInMonthArr(today, dateContext, notAvailable);
+const getWeeksInMonth = (today, dateContext, notAvailable, selectedDates) => {
+    const daysInMonthArr = getDaysInMonthArr(today, dateContext, notAvailable, selectedDates);
     const weeksInMonthArr = [];
     let week = [];
     daysInMonthArr.forEach((day, i) => {

@@ -8,6 +8,7 @@ class Calendar extends Component {
     state = {
         dateContext: "",
         today: "",
+        selectedDates: [],
     }
     componentDidMount() {
         const today = getToday();
@@ -16,6 +17,21 @@ class Calendar extends Component {
     }
     handleNavigation = (action) => {
         this.setState({ dateContext: navigate(action, this.state.dateContext) });
+    }
+    handleClick = (e) => {
+        const { fName } = this.props.photographer;
+        const { selectedDates } = this.state;
+        let dateStr = selectedDates.map(d => d.date.format("MMM Do YYYY")).join(", ");
+        alert(`You are about to send a request to ${fName} for the following date${selectedDates.length > 1 ? "s" : ""} : ${dateStr}`)
+    }
+    selectDay = ({ content: dayNum, className }) => {
+        if (!className.includes("booked")) {
+            const { dateContext: { month, year }, selectedDates: datesArr } = this.state;
+            const selectedDate = getDateContext(`${dayNum} ${month} ${year}`);
+            let selectedDates = datesArr.filter(sDate => sDate.date.date() !== selectedDate.date.date());
+            if (selectedDates.length === datesArr.length) selectedDates.push(selectedDate);
+            this.setState({ selectedDates });
+        }
     }
     handleSelectDate = (e) => {
         this.setState({ dateContext: setDate(e.target.name, e.target.value, this.state.dateContext) });
@@ -42,13 +58,16 @@ class Calendar extends Component {
         return <tr>{weekDays.map((day) => <td key={day} className="week-day">{day}</td>)}</tr>
     }
     renderDays = (notAvailable) => {
-        const { today, dateContext } = this.state;
-        const weeksInMonth = getWeeksInMonth(today, dateContext, notAvailable);
+        const { today, dateContext, selectedDates } = this.state;
+        const weeksInMonth = getWeeksInMonth(today, dateContext, notAvailable, selectedDates);
         return (
             weeksInMonth.map((week, i) =>
                 <tr key={`week-${i}`}>
-                    {week.map(day => <td key={day.key} className={day.className}>
-                        {day.content}
+                    {week.map(day => <td key={day.key}>
+                        <button className={day.className} onClick={() => this.selectDay(day)}>
+                            {day.content}
+                        </button>
+
                     </td>)}
                 </tr>
             )
@@ -56,7 +75,7 @@ class Calendar extends Component {
     }
     render() {
         const { notAvailable } = this.props.photographer;
-        const { year, month } = this.state.dateContext;
+        const { selectedDates, dateContext: { year, month } } = this.state;
         const navFields = [
             { name: "month", label: "Month", options: monthsArr, value: month },
             { name: "year", label: "Year", options: yearsArr, value: year },
@@ -76,8 +95,12 @@ class Calendar extends Component {
                 </table>
                 <div className="more-div">
                     {
-                        true &&
-                        <MoreButton variant="outlined" onClick={this.handleClick} label="Book" />
+                        selectedDates.length > 0 &&
+                        <MoreButton variant="contained" color="secondary" onClick={this.handleClick} label="Book" />
+                    }
+                    {
+                        selectedDates.length === 0 &&
+                        <MoreButton variant="outlined" onClick={this.handleClick} label="Select" />
                     }
                 </div>
             </div>
