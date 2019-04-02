@@ -3,11 +3,16 @@ import moment from "moment";
 
 describe('get dates data', () => {
     it('should return an object containing all data about one date', () => {
-        const myDate = moment("20190401");                      //this is moment.js date syntax for April 1st 2019
-        expect(getDateContext(myDate)).toEqual({ "date": myDate, "day": "1", "daysInMonth": 30, "firstDayOfMonth": "1", "month": "April", "year": "2019" });
+        const myDate = moment("2019-04-01");                      //this is moment.js date syntax for April 1st 2019
+        expect(getDateContext(myDate)).toEqual({ "date": myDate.format("YYYY-MM-DD"), "day": "1", "daysInMonth": 30, "firstDayOfMonth": "1", "month": "April", "year": "2019" });
     });
-    it('should return an object containing all data about today', () => {
-        expect(getToday()).toEqual({ "date": moment(), "day": moment().format("D"), "daysInMonth": moment().daysInMonth(), "firstDayOfMonth": moment().startOf('month').format('d'), "month": moment().format("MMMM"), "year": moment().format("Y") });
+    it('should return an object containing all properties about today', () => {
+        expect(getToday()).toHaveProperty('date');
+        expect(getToday()).toHaveProperty('day');
+        expect(getToday()).toHaveProperty('daysInMonth');
+        expect(getToday()).toHaveProperty('firstDayOfMonth');
+        expect(getToday()).toHaveProperty('month');
+        expect(getToday()).toHaveProperty('year');
     });
 });
 
@@ -41,7 +46,7 @@ describe('return an array of arrays of the days of week starting on Sunday for a
         },
     ]
     it('should return an object with the empty slot properties for the first Sunday displayed for April 2019 as the month starts on Monday', () => {
-        expect(getWeeksInMonth(today, dateContext, notAvailable, selectedDates)[0][0]).toEqual({ "className": "emptySlot", "content": "", "key": "empty-0" });
+        expect(getWeeksInMonth(today, dateContext, notAvailable, selectedDates)[0][0]).toEqual({ "className": "day emptySlot", "content": "", "key": "empty-0" });
     });
     it('should return an object with the day properties for the first Monday displayed for April 2019 as the month starts on Monday', () => {
         expect(getWeeksInMonth(today, dateContext, notAvailable, selectedDates)[0][1]).toEqual({ "className": "day", "content": 1, "key": "full-1" });
@@ -60,10 +65,11 @@ describe('return an array of arrays of the days of week starting on Sunday for a
         expect(getWeeksInMonth(today, dateContext, notAvailable, selectedDates)[0].length).toBe(7);
     });
 });
+
 describe('get the date context of the selected month and year', () => {
-    const aprilDateContext2019 = getDateContext(moment("20190409"));
-    const mayDateContext2019 = getDateContext(moment("20190509"));
-    const mayDateContext2021 = getDateContext(moment("20210509"));
+    const aprilDateContext2019 = getDateContext(moment("2019-04-09"));
+    const mayDateContext2019 = getDateContext(moment("2019-05-09"));
+    const mayDateContext2021 = getDateContext(moment("2021-05-09"));
     it('should return the date context of the selected month', () => {
         expect(setDate("month", "May", aprilDateContext2019)).toEqual(mayDateContext2019);
     });
