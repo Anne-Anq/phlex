@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { getToday } from "../logics/calendar";
 
 class Form extends Component {
   state = {};
@@ -18,12 +19,7 @@ class Form extends Component {
     );
   }
   renderDateField(path, label) {
-    const today = new Date(Date.now());
-    const month = Number(today.getMonth()) + 1;
-    const defaultDate = `${today.getFullYear()}-${month
-      .toString()
-      .padStart(2, "0")}-${today.getDate()}`;
-
+    const defaultDate = getToday().date;
     return (
       <div className="form-group text-left p-3">
         <label htmlFor={path}>{label}</label>

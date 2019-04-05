@@ -37,11 +37,10 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    
+
   }
 
   handleChange = e => {
-    console.log(e.target.name, e.target.value);
     const { value, id } = e.target;
     let search = {};
     Object.keys(this.state.data.search).map(input => (
@@ -54,39 +53,39 @@ class App extends Component {
         data: { ...prevState.data, search }
       }));
 
-      const { photographers  } = this.state.data;
+    const { photographers } = this.state.data;
 
- 
-      const searchResult = new Search(photographers, search.photoType);
-      let result = searchResult.getSearchResult();
-      if(result.length !== 0) {
+
+    const searchResult = new Search(photographers, search.photoType);
+    let result = searchResult.getSearchResult();
+    if (result.length !== 0) {
       this.setState(prevState => ({
-        data: { ...prevState.data,  ...prevState.data.filteredPhotographers = result }
+        data: { ...prevState.data, ...prevState.data.filteredPhotographers = result }
       }))
-    
 
 
 
 
-    //return this.props.history.push('/result');
-    
-    // this.setState(prevState =>
-    //   ({
-    //     data: { ...prevState.data, search }
-    //   }));
-  }
+
+      //return this.props.history.push('/result');
+
+      // this.setState(prevState =>
+      //   ({
+      //     data: { ...prevState.data, search }
+      //   }));
+    }
   };
 
   handleSubmitSearch = () => {
-    const { search, photographers  } = this.state.data;
-    if(search.photoType) {
+    const { search, photographers } = this.state.data;
+    if (search.photoType) {
       const searchResult = new Search(photographers, search.photoType);
       let result = searchResult.getSearchResult();
-      if(result.length !== 0) {
-      this.setState(prevState => ({
-        data: { ...prevState.data, ...prevState.data.photographers = result }
-      }))
-    }
+      if (result.length !== 0) {
+        this.setState(prevState => ({
+          data: { ...prevState.data, ...prevState.data.photographers = result }
+        }))
+      }
       return this.props.history.push('/result');
     }
   };
@@ -117,7 +116,7 @@ class App extends Component {
               props => <UserSignup />
             }
           />
-          <Route path="/login" render={props => <SignIn/>} />
+          <Route path="/login" render={props => <SignIn />} />
           <Route
             exact
             path="/"

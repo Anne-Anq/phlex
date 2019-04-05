@@ -22,7 +22,7 @@ class Calendar extends Component {
         const { fName } = this.props.photographer;
         const { selectedDates } = this.state;
         if (selectedDates.length > 0) {
-            let dateStr = selectedDates.map(d => d.date.format("MMM Do YYYY")).join(", ");
+            let dateStr = selectedDates.map(d => d.dateLabel).join(", ");
             alert(`You are about to send a request to ${fName} for the following date${selectedDates.length > 1 ? "s" : ""} : ${dateStr}.`)
         } else {
             alert(`You need to select the dates you want to book ${fName} for.`)
@@ -33,7 +33,7 @@ class Calendar extends Component {
         if (!className.includes("booked")) {
             const { dateContext: { month, year }, selectedDates: datesArr } = this.state;
             const selectedDate = getDateContext(getDay(year, month, dayNum));
-            let selectedDates = datesArr.filter(sDate => sDate.date.date() !== selectedDate.date.date());
+            let selectedDates = datesArr.filter(sDate => sDate.date !== selectedDate.date);
             if (selectedDates.length === datesArr.length) selectedDates.push(selectedDate);
             this.setState({ selectedDates });
         }

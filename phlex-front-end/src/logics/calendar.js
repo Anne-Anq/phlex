@@ -3,7 +3,8 @@ import _ from "lodash";
 
 const getDateContext = (myDate) => {
     return {
-        date: moment(myDate),
+        date: moment(myDate).format("YYYY-MM-DD"),
+        dateLabel: moment(myDate).format("MMM Do YYYY"),
         day: moment(myDate).format("D"),
         year: moment(myDate).format("Y"),
         month: moment(myDate).format("MMMM"),
@@ -44,7 +45,7 @@ const getCurrentMonthDays = (todaysDate, { daysInMonth, month, year }, notAvaila
                 className = `${className} booked`;
             }
         })
-        selectedDates.forEach(sDate => className = `${className} ${compareDates(sDate.date, dDate) ? "selected" : ""}`)
+        selectedDates.forEach(sDate => className = `${className} ${compareDates(moment(sDate.date), dDate) ? "selected" : ""}`)
         currentMonthDays.push({ key: `full-${d}`, className: className, content: d });
     }
     return currentMonthDays;
@@ -82,7 +83,7 @@ const setYear = (year, dateContext) => {
     return getDateContext(moment(date).set("year", year));
 }
 const setMonth = (month, dateContext) => {
-    const { date } = Object.assign({}, dateContext);
+    let { date } = Object.assign({}, dateContext);
     return getDateContext(moment(date).set("month", month));
 }
 const setDate = (param, value, dateContext) => {
